@@ -1,0 +1,43 @@
+:root{
+	--bg:#0b0b10; /* page background */
+	--panel:#0f0b18; /* slightly lighter panel */
+	--muted:#bdb6d6;
+	--accent:#9b59ff; /* purple accent */
+	--accent-2:#6a0dad;
+	--card:#111018;
+}
+
+html,body,#root{height:100%}
+.App{font-family:Inter,system-ui,Arial,Helvetica,sans-serif}
+body{margin:0;background:var(--bg);color:var(--muted)}
+.App h1,.App h2,.App h3,.brand{font-family:Sora,Inter,system-ui}
+.App h1{color:#fff}
+.container{max-width:1000px;margin:0 auto;padding:0 1rem}
+.site-footer{background:transparent;color:var(--muted);padding:1.5rem 0;text-align:center;border-top:1px solid rgba(255,255,255,0.04)}
+/* footer polish */
+.site-footer .container{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.site-footer small{color:rgba(255,255,255,0.45)}
+
+
+/* account for fixed navbar height */
+main{background:transparent;padding-top:64px}
+
+/* smooth scroll for in-page nav */
+html{scroll-behavior:smooth}
+
+/* ensure anchor target appears below the fixed navbar */
+section{scroll-margin-top:88px}
+
+/* Section reveal + bubble effect */
+section{position:relative;opacity:0;transform:translateY(10px);transition:all .7s cubic-bezier(.2,.9,.3,1)}
+section.in-view{opacity:1;transform:translateY(0)}
+
+/* bubble pseudo element */
+/* removed bubble pseudo-element per request (was causing extra visuals on page) */
+
+/* subtle stagger for cards inside projects */
+.projects .card{transition:transform .6s cubic-bezier(.2,.9,.3,1),opacity .6s;opacity:0;transform:translateY(8px)}
+.projects.in-view .card{opacity:1;transform:none}
+
+
+

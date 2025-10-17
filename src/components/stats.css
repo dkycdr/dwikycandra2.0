@@ -1,0 +1,9 @@
+.stats{padding:2.25rem 0}
+.stats-grid{display:flex;gap:1rem;justify-content:space-between;max-width:900px;margin:0 auto}
+.stat{background:var(--card);padding:1rem;border-radius:10px;flex:1;text-align:center;border:1px solid rgba(155,89,255,0.04)}
+.stat-num{font-size:1.8rem;font-weight:800;color:var(--accent-2)}
+.stat-label{color:var(--muted);margin-top:.4rem}
+
+@media (max-width:820px){
+  .stats-grid{flex-direction:column}
+}
