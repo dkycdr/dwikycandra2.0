@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/dwikycandra2.0/static/css/main.720fbdc9.css",
+    "main.css": "/dwikycandra2.0/static/css/main.4d241611.css",
     "main.js": "/dwikycandra2.0/static/js/main.d5f7fb46.js",
     "static/js/453.50a04070.chunk.js": "/dwikycandra2.0/static/js/453.50a04070.chunk.js",
     "index.html": "/dwikycandra2.0/index.html",
-    "main.720fbdc9.css.map": "/dwikycandra2.0/static/css/main.720fbdc9.css.map",
+    "main.4d241611.css.map": "/dwikycandra2.0/static/css/main.4d241611.css.map",
     "main.d5f7fb46.js.map": "/dwikycandra2.0/static/js/main.d5f7fb46.js.map",
     "453.50a04070.chunk.js.map": "/dwikycandra2.0/static/js/453.50a04070.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.720fbdc9.css",
+    "static/css/main.4d241611.css",
     "static/js/main.d5f7fb46.js"
   ]
 }
