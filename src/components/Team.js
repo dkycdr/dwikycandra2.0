@@ -59,7 +59,17 @@ export default function Team() {
                   alt={member.name}
                   className="team-member-photo"
                   onError={(e) => {
-                    e.target.src = 'https://via.placeholder.com/250?text=' + member.name;
+                    e.target.style.backgroundColor = '#9b59ff';
+                    e.target.style.backgroundImage = 'linear-gradient(135deg, #9b59ff, #6432ff)';
+                    e.target.style.width = '100%';
+                    e.target.style.height = '100%';
+                    e.target.style.display = 'flex';
+                    e.target.style.alignItems = 'center';
+                    e.target.style.justifyContent = 'center';
+                    e.target.style.color = '#fff';
+                    e.target.style.fontSize = '32px';
+                    e.target.style.fontWeight = 'bold';
+                    e.target.textContent = member.name.split(' ')[0][0];
                   }}
                 />
               </div>

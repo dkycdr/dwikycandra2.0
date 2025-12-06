@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import Team from './components/Team';
 import Contact from './components/Contact';
 import Cube3D from './components/Cube3D';
+import ChatBot from './components/ChatBot';
 import { FiGithub, FiLinkedin, FiInstagram } from 'react-icons/fi';
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
         <Team />
         <Contact />
       </main>
+      <ChatBot />
       <footer className="site-footer">
         <div className="container">
           <div className="footer-content">

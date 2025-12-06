@@ -1,34 +1,45 @@
 .testimonials{
-    padding:6rem 0;
+    padding:6rem 2rem;
     position:relative;
-    overflow:visible;
     background:linear-gradient(
         165deg,
         rgba(155,89,255,0.05) 0%,
         transparent 50%,
         rgba(106,13,173,0.03) 100%
     );
-    min-height:300px;
-    display:flex;
-    align-items:center
 }
 
-.container {
+.testimonials .container {
     width: 100%;
-    overflow: visible;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.testimonials > .container > h3 {
+    text-align: center;
+    color: #fff;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin: 0 0 3rem 0;
+    background: linear-gradient(90deg, #fff 30%, var(--accent-2));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .testi-marquee {
     position: relative;
     width: 100%;
-    overflow: visible;
+    overflow: hidden;
+    margin: 0;
 }
 
 .testi-track {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     animation: scroll 40s linear infinite;
     padding: 1rem 0;
+    width: fit-content;
 }
 
 .testi-track:hover {
@@ -36,18 +47,22 @@
 }
 
 .testi-item {
-    flex: 0 0 400px;
+    flex: 0 0 auto;
+    width: 380px;
+    min-height: auto;
+    max-height: none;
     background: rgba(155,89,255,0.08);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(155,89,255,0.1);
     border-radius: 16px;
-    padding: 2rem;
+    padding: 1.8rem;
     transition: all 0.4s ease;
-    transform: scale(0.98);
+    display: flex;
+    flex-direction: column;
 }
 
 .testi-item:hover {
-    transform: scale(1) translateY(-5px);
+    transform: translateY(-5px);
     background: rgba(155,89,255,0.12);
     border-color: rgba(155,89,255,0.3);
     box-shadow: 
@@ -57,16 +72,22 @@
 
 .testi-text {
     color: #fff;
-    font-size: 1.125rem;
+    font-size: 0.95rem;
     line-height: 1.6;
-    margin: 0 0 1rem;
+    margin: 0 0 auto 0;
+    padding: 0;
     position: relative;
+    word-break: break-word;
+    white-space: normal;
 }
 
 .testi-who {
     color: var(--accent);
     font-size: 0.9375rem;
     font-weight: 500;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(155,89,255,0.2);
 }
 
 @keyframes scroll {
@@ -74,7 +95,7 @@
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-100% - 2rem));
+        transform: translateX(calc(-100% - 1.5rem));
     }
 }
 
