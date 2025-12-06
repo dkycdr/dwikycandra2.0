@@ -13,6 +13,25 @@
     )
 }
 
+/* Code snippet background - Hero */
+.hero::before {
+  content: 'const buildExperience = () => { return <React />; }';
+  position: fixed;
+  top: 20%;
+  left: 2%;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  color: rgba(155, 89, 255, 0.06);
+  pointer-events: none;
+  z-index: -2;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  text-shadow: 
+    1px 1px 0 rgba(155, 89, 255, 0.04),
+    2px 2px 0 rgba(155, 89, 255, 0.02);
+}
+
 .hero-content{
     width:92%;
     max-width:1200px;
@@ -207,7 +226,8 @@
 /* Right side */
 .hero-cards{
     position:relative;
-    height:400px;
+    height:600px;
+    width:100%;
     perspective:1000px;
     opacity:0;
     transform:translateY(20px)
@@ -232,24 +252,38 @@
 }
 
 .floating-card:nth-child(1){
-    top:0;
-    right:0;
-    transform:rotate(5deg);
-    animation:float 6s ease-in-out infinite
+    top:-5%;
+    right:5%;
+    transform:rotate(-8deg);
+    animation:float 7s ease-in-out infinite
 }
 
 .floating-card:nth-child(2){
-    top:50%;
-    left:0;
-    transform:rotate(-3deg);
-    animation:float 6s ease-in-out infinite -2s
+    top:20%;
+    left:5%;
+    transform:rotate(6deg);
+    animation:float 6.5s ease-in-out infinite -2.5s
 }
 
 .floating-card:nth-child(3){
-    bottom:0;
-    right:20%;
-    transform:rotate(2deg);
-    animation:float 6s ease-in-out infinite -4s
+    top:45%;
+    right:10%;
+    transform:rotate(-4deg);
+    animation:float 7.5s ease-in-out infinite -1.5s
+}
+
+.floating-card:nth-child(4){
+    top:65%;
+    right:0%;
+    transform:rotate(5deg);
+    animation:float 6s ease-in-out infinite -3.5s
+}
+
+.floating-card:nth-child(5){
+    bottom:5%;
+    left:8%;
+    transform:rotate(-6deg);
+    animation:float 7s ease-in-out infinite -0.8s
 }
 
 .floating-card.skill{
@@ -390,4 +424,156 @@
     .hero-cards{
         display:none
     }
+}
+
+/* Skill Modal */
+.skill-modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(4px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:100;
+    animation:fadeIn 0.3s ease
+}
+
+.skill-modal{
+    background:var(--card);
+    border:1px solid rgba(155,89,255,0.2);
+    border-radius:16px;
+    padding:2rem;
+    max-width:500px;
+    width:90%;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    animation:slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position:relative;
+    max-height:80vh;
+    overflow-y:auto
+}
+
+.modal-close{
+    position:absolute;
+    top:1.5rem;
+    right:1.5rem;
+    background:rgba(155,89,255,0.1);
+    border:1px solid rgba(155,89,255,0.2);
+    width:32px;
+    height:32px;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    color:var(--muted);
+    font-size:1.2rem;
+    transition:all 0.2s ease
+}
+
+.modal-close:hover{
+    background:rgba(155,89,255,0.2);
+    color:#fff;
+    transform:rotate(90deg)
+}
+
+.modal-header{
+    display:flex;
+    gap:1.5rem;
+    margin-bottom:1.5rem;
+    align-items:flex-start
+}
+
+.modal-icon{
+    width:60px;
+    height:60px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(155,89,255,0.1);
+    border-radius:12px;
+    color:var(--accent);
+    font-size:1.8rem;
+    flex-shrink:0
+}
+
+.modal-header h2{
+    margin:0;
+    font-size:1.5rem;
+    color:#fff;
+    margin-bottom:0.25rem
+}
+
+.modal-subtitle{
+    color:var(--accent);
+    font-size:0.9rem;
+    margin:0
+}
+
+.modal-description{
+    color:var(--muted);
+    line-height:1.7;
+    font-size:1rem;
+    margin-bottom:1.5rem
+}
+
+.modal-details h3{
+    color:#fff;
+    font-size:1.1rem;
+    margin:1.5rem 0 1rem;
+    display:flex;
+    align-items:center;
+    gap:0.5rem
+}
+
+.modal-details ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    gap:0.75rem
+}
+
+.modal-details li{
+    color:var(--muted);
+    padding-left:1.5rem;
+    position:relative;
+    font-size:0.95rem;
+    line-height:1.5
+}
+
+.modal-details li::before{
+    content:'✓';
+    position:absolute;
+    left:0;
+    color:var(--accent);
+    font-weight:bold
+}
+
+@keyframes fadeIn{
+    from{opacity:0}
+    to{opacity:1}
+}
+
+@keyframes slideUp{
+    from{
+        opacity:0;
+        transform:translateY(20px)
+    }
+    to{
+        opacity:1;
+        transform:translateY(0)
+    }
+}
+
+/* Make cards clickable */
+.floating-card{
+    transition:all 0.3s ease
+}
+
+.floating-card:hover{
+    transform:scale(1.05) rotate(0deg) !important;
+    border-color:rgba(155,89,255,0.3);
+    box-shadow:0 20px 40px -20px rgba(155,89,255,0.3);
 }

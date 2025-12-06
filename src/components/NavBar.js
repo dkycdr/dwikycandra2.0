@@ -95,6 +95,7 @@ export default function NavBar(){
           <span className="nav-highlight" style={{left: hl.left, width: hl.width, opacity: hl.opacity}} />
           <a className={active==='about' ? 'active': ''} href="#about">About</a>
           <a className={active==='projects' ? 'active': ''} href="#projects">Projects</a>
+          <a className={active==='team' ? 'active': ''} href="#team">Team</a>
           <a className={active==='contact' ? 'active': ''} href="#contact">Contact</a>
         </nav>
       </div>

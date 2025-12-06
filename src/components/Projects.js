@@ -1,43 +1,52 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './projects.css';
 
 const projects = [
   {
     id: 1,
     title: 'AI-Powered Landing Page',
-    desc: 'Landing page modern dengan fitur AI chat assistant dan animasi smooth.',
+    desc: 'A modern landing page featuring an AI chat assistant and smooth animations.',
     image: 'project1.jpg',
     tech: ['React', 'Framer Motion', 'TailwindCSS', 'OpenAI'],
-    links: { demo: 'https://dkycdr.github.io/dwiky-candra/ai-landing.html', code: '#' }
+    links: { demo: 'https://dkycdr.github.io/dwiky-candra/ai-landing.html', code: '#'},
+    role: 'Personal Project',
+    jobDesc: 'Full ownership of project design and implementation. Responsible for UI/UX design, component architecture, API integration with OpenAI, and deployment.'
   },
   {
     id: 2,
     title: 'Career Pods Explorer',
-    desc: 'Dashboard real-time dengan visualisasi data interaktif dan theming system.',
+    desc: 'Career Pods help President University students with career guidance, skill-building, mentorship, events, and easy access to resources.',
     image: 'project2.jpg',
     tech: ['React', 'Node.js', 'Next.js', 'PostgreSQL', 'Socket.io', ],
-    links: { demo: 'career-podsv1.vercel.app', code: '#' }
+    links: { demo: 'https://career-podsv1.vercel.app', code: '#' },
+    role: 'Project Manager',
+    jobDesc: 'Led cross-functional team coordinating development timeline, feature prioritization, and stakeholder communication. Managed sprint cycles, conducted code reviews, and ensured project delivery within deadlines.'
   },
   {
     id: 3,
     title: 'President FoodConnect',
-    desc: 'Interface modern untuk platform kursus online dengan video player custom.',
+    desc: 'President FoodConnect is a platform connecting students with local food vendors, offering seamless ordering and delivery services.',
     image: 'project3.jpg',
     tech: ['React', 'Flutter', 'Node.js', 'PostgreSQL'],
-    links: { demo: '#', code: '#' }
+    links: { demo: '#', code: '#' },
+    role: 'Project Manager',
+    jobDesc: 'Oversaw end-to-end project coordination between frontend and backend teams. Responsible for requirements gathering, timeline management, risk mitigation, and final product delivery coordination.'
   },
   {
     id: 4,
-    title: 'Social Media Dashboard',
-    desc: 'Dashboard media sosial dengan analisis sentiment dan data visualization.',
+    title: 'Z Studio',
+    desc: 'Z Studio is a creative service platform offering video editing, web design, and logo creation for clients seeking professional digital solutions.',
     image: 'project4.jpg',
-    tech: ['Next.js', 'Chart.js', 'TensorFlow.js', 'Socket.io'],
-    links: { demo: '#', code: '#' }
+    tech: ['React', 'Next.js', 'TypeScript', 'Node.js', 'Socket.io'],
+    links: { demo: '#', code: '#' },
+    role: 'Fullstack Developer',
+    jobDesc: 'Developed both frontend and backend components. Built responsive UI with React/Next.js, implemented real-time features using Socket.io, designed database schemas, and created RESTful APIs for client management and service delivery.'
   }
 ];
 
 export default function Projects() {
   const gridRef = useRef(null);
+  const [selectedRole, setSelectedRole] = useState(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -65,7 +74,7 @@ export default function Projects() {
       <div className="container">
         <div className="section-header">
           <h2>Featured Projects</h2>
-          <p className="section-desc">Beberapa proyek terbaik yang telah saya kerjakan menggunakan teknologi modern.</p>
+          <p className="section-desc">A selection of my top projects showcasing modern technology.</p>
         </div>
         
         <div className="grid" ref={gridRef}>
@@ -76,6 +85,9 @@ export default function Projects() {
                   <div className="card-content">
                     <h3>{p.title}</h3>
                     <p>{p.desc}</p>
+                    <div className="role-badge" onClick={() => setSelectedRole(p)}>
+                      {p.role}
+                    </div>
                     <div className="tech-stack">
                       {p.tech.map(tech => (
                         <span key={tech} className="tech-tag">{tech}</span>
@@ -93,6 +105,36 @@ export default function Projects() {
           ))}
         </div>
       </div>
+
+      {/* Role Modal */}
+      {selectedRole && (
+        <div className="role-modal-overlay" onClick={() => setSelectedRole(null)}>
+          <div className="role-modal" onClick={(e) => e.stopPropagation()}>
+            <button 
+              className="modal-close"
+              onClick={() => setSelectedRole(null)}
+              aria-label="Close"
+            >
+              ✕
+            </button>
+
+            <div className="role-modal-header">
+              <h2>{selectedRole.title}</h2>
+              <p className="role-title">{selectedRole.role}</p>
+            </div>
+
+            <div className="role-modal-content">
+              <h3>Job Description & Responsibilities</h3>
+              <p>{selectedRole.jobDesc}</p>
+
+              <div className="role-details">
+                <h4>Project Details</h4>
+                <p><strong>Technologies:</strong> {selectedRole.tech.join(', ')}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

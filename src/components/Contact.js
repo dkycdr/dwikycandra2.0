@@ -46,14 +46,14 @@ export default function Contact() {
   return (
     <section className="contact" id="contact">
       <div className="container">
-        <h2>Kontak</h2>
+        <h2>Contact Me</h2>
         <form onSubmit={handleSubmit} className="contact-form">
-          <input name="name" placeholder="Nama" required />
+          <input name="name" placeholder="Name" required />
           <input name="email" type="email" placeholder="Email" required />
-          <textarea name="message" placeholder="Pesan" rows="4" required />
-          <button type="submit">Kirim</button>
+          <textarea name="message" placeholder="Message" rows="4" required />
+          <button type="submit">Send</button>
         </form>
-        {sent && <p className="success">Terima kasih! Pesan terkirim.</p>}
+        {sent && <p className="success">Thank you, the message was sent!</p>}
         {error && <p className="error">{error}</p>}
         {!FORM_ENDPOINT && (
           <p className="muted">Form masih mock. Untuk kirim email, tambahkan endpoint Formspree ke <code>FORM_ENDPOINT</code> di file ini.</p>

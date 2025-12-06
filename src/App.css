@@ -7,20 +7,32 @@
 	--card:#111018;
 }
 
-html,body,#root{height:100%}
-.App{font-family:Inter,system-ui,Arial,Helvetica,sans-serif}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+
+html,body,#root{min-height:100vh}
+.App{font-family:'Poppins',Inter,system-ui,Arial,Helvetica,sans-serif}
 body{margin:0;background:var(--bg);color:var(--muted)}
-.App h1,.App h2,.App h3,.brand{font-family:Sora,Inter,system-ui}
+.App h1,.App h2,.App h3,.brand{font-family:'Poppins',Sora,Inter,system-ui;font-weight:700;letter-spacing:-0.01em}
 .App h1{color:#fff}
 .container{max-width:1000px;margin:0 auto;padding:0 1rem}
-.site-footer{background:transparent;color:var(--muted);padding:1.5rem 0;text-align:center;border-top:1px solid rgba(255,255,255,0.04)}
+.site-footer{background:transparent;color:var(--muted);padding:1.5rem 0;text-align:center;border-top:1px solid rgba(255,255,255,0.04);font-family:'Poppins',Inter,system-ui}
 /* footer polish */
 .site-footer .container{display:flex;align-items:center;justify-content:space-between;gap:1rem}
 .site-footer small{color:rgba(255,255,255,0.45)}
 
+.footer-content{display:flex;align-items:center;justify-content:space-between;width:100%;gap:2rem}
+
+.social-links{display:flex;gap:1rem;align-items:center}
+
+.social-link{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:8px;background:rgba(155,89,255,0.08);color:var(--accent);text-decoration:none;transition:all 0.3s ease;border:1px solid rgba(155,89,255,0.1)}
+
+.social-link:hover{background:var(--accent);color:#000;transform:translateY(-2px);box-shadow:0 5px 15px rgba(155,89,255,0.3)}
+
+.social-link svg{width:18px;height:18px}
+
 
 /* account for fixed navbar height */
-main{background:transparent;padding-top:64px}
+main{background:transparent;padding-top:56px}
 
 /* smooth scroll for in-page nav */
 html{scroll-behavior:smooth}
@@ -38,6 +50,3 @@ section.in-view{opacity:1;transform:translateY(0)}
 /* subtle stagger for cards inside projects */
 .projects .card{transition:transform .6s cubic-bezier(.2,.9,.3,1),opacity .6s;opacity:0;transform:translateY(8px)}
 .projects.in-view .card{opacity:1;transform:none}
-
-
-

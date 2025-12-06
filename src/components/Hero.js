@@ -1,13 +1,82 @@
 import React, { useEffect, useState } from 'react';
 import './hero.css';
-import { FiGithub, FiCode, FiLayout, FiZap, FiArrowRight } from 'react-icons/fi';
+import { FiGithub, FiCode, FiLayout, FiZap, FiArrowRight, FiServer, FiDatabase } from 'react-icons/fi';
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
+  const [selectedSkill, setSelectedSkill] = useState(null);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  const skillDetails = [
+    {
+      id: 1,
+      title: 'Clean Code',
+      subtitle: 'Modern & Maintainable',
+      description: 'I follow best practices and coding standards to write clean, readable, and maintainable code. Using modern JavaScript patterns, proper naming conventions, and modular architecture ensures that code is easy to understand and modify.',
+      details: [
+        'ES6+ JavaScript patterns',
+        'Component-based architecture',
+        'DRY and SOLID principles',
+        'Code documentation & comments',
+        'Proper error handling'
+      ]
+    },
+    {
+      id: 2,
+      title: 'UI/UX Focus',
+      subtitle: 'Beautiful & Intuitive',
+      description: 'Creating visually appealing and user-friendly interfaces is my passion. I focus on responsive design, accessibility, and smooth animations to deliver an exceptional user experience across all devices.',
+      details: [
+        'Responsive design',
+        'Accessibility (A11y)',
+        'Smooth animations & transitions',
+        'Mobile-first approach',
+        'User experience optimization'
+      ]
+    },
+    {
+      id: 3,
+      title: 'Performance',
+      subtitle: 'Fast & Optimized',
+      description: 'I optimize applications for speed and efficiency. Through code splitting, lazy loading, caching strategies, and performance monitoring, I ensure applications load quickly and run smoothly.',
+      details: [
+        'Code splitting & lazy loading',
+        'Image optimization',
+        'Bundle size optimization',
+        'Performance monitoring',
+        'Caching strategies'
+      ]
+    },
+    {
+      id: 4,
+      title: 'Full Stack',
+      subtitle: 'React & Node.js',
+      description: 'I develop complete end-to-end applications using React on the frontend and Node.js with Express on the backend. This full-stack capability allows me to build scalable, modern web applications.',
+      details: [
+        'React hooks & state management',
+        'Express.js server development',
+        'REST API design',
+        'Authentication & authorization',
+        'Real-time data handling'
+      ]
+    },
+    {
+      id: 5,
+      title: 'Database',
+      subtitle: 'MongoDB & SQL',
+      description: 'Proficient with both NoSQL (MongoDB) and relational (SQL) databases. I design efficient database schemas, write optimized queries, and ensure data integrity and security.',
+      details: [
+        'MongoDB aggregation & queries',
+        'SQL database design',
+        'Query optimization',
+        'Data modeling',
+        'Database security practices'
+      ]
+    }
+  ];
 
   return (
     <section className="hero" id="hero">
@@ -27,7 +96,7 @@ export default function Hero() {
             </h1>
             
             <p className={`hero-bio ${isVisible ? 'visible' : ''}`}>
-              Hi, I'm Dwiky. A passionate Front-End Developer based in Jakarta, Indonesia.
+              Hi, I'm Dwiky. A passionate Front-End Developer based in Cikarang, Indonesia.
               I specialize in crafting modern, performant, and user-friendly interfaces
               using React and cutting-edge web technologies. Currently studying at President
               University while working on freelance projects.
@@ -56,38 +125,71 @@ export default function Hero() {
 
           {/* Right side */}
           <div className={`hero-cards ${isVisible ? 'visible' : ''}`}>
-            <div className="floating-card skill">
-              <div className="skill-icon">
-                <FiCode />
+            {skillDetails.map((skill) => (
+              <div 
+                key={skill.id}
+                className="floating-card skill"
+                onClick={() => setSelectedSkill(skill)}
+                style={{ cursor: 'pointer' }}
+              >
+                <div className="skill-icon">
+                  {skill.id === 1 && <FiCode />}
+                  {skill.id === 2 && <FiLayout />}
+                  {skill.id === 3 && <FiZap />}
+                  {skill.id === 4 && <FiServer />}
+                  {skill.id === 5 && <FiDatabase />}
+                </div>
+                <div className="skill-text">
+                  <h4>{skill.title}</h4>
+                  <p>{skill.subtitle}</p>
+                </div>
               </div>
-              <div className="skill-text">
-                <h4>Clean Code</h4>
-                <p>Modern & Maintainable</p>
-              </div>
-            </div>
-
-            <div className="floating-card skill">
-              <div className="skill-icon">
-                <FiLayout />
-              </div>
-              <div className="skill-text">
-                <h4>UI/UX Focus</h4>
-                <p>Beautiful & Intuitive</p>
-              </div>
-            </div>
-
-            <div className="floating-card skill">
-              <div className="skill-icon">
-                <FiZap />
-              </div>
-              <div className="skill-text">
-                <h4>Performance</h4>
-                <p>Fast & Optimized</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
+
+      {/* Modal Popup */}
+      {selectedSkill && (
+        <div className="skill-modal-overlay" onClick={() => setSelectedSkill(null)}>
+          <div className="skill-modal" onClick={(e) => e.stopPropagation()}>
+            <button 
+              className="modal-close"
+              onClick={() => setSelectedSkill(null)}
+              aria-label="Close"
+            >
+              ✕
+            </button>
+
+            <div className="modal-header">
+              <div className="modal-icon">
+                {selectedSkill.id === 1 && <FiCode />}
+                {selectedSkill.id === 2 && <FiLayout />}
+                {selectedSkill.id === 3 && <FiZap />}
+                {selectedSkill.id === 4 && <FiServer />}
+                {selectedSkill.id === 5 && <FiDatabase />}
+              </div>
+              <div>
+                <h2>{selectedSkill.title}</h2>
+                <p className="modal-subtitle">{selectedSkill.subtitle}</p>
+              </div>
+            </div>
+
+            <p className="modal-description">
+              {selectedSkill.description}
+            </p>
+
+            <div className="modal-details">
+              <h3>Key Skills:</h3>
+              <ul>
+                {selectedSkill.details.map((detail, idx) => (
+                  <li key={idx}>{detail}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
