@@ -1,12 +1,12 @@
 .site-nav{position:fixed;top:0;left:0;right:0;z-index:50;background:linear-gradient(90deg, rgba(10,6,20,0.92), rgba(10,6,20,0.7));backdrop-filter:blur(8px);border-bottom:1px solid rgba(155,89,255,0.06)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
 .brand{display:flex;align-items:center}
-.brand-inner{position:relative;padding:0.75rem 1.25rem;border-radius:12px;overflow:hidden;cursor:default;display:flex;align-items:center;gap:0.35rem}
+.brand-inner{position:relative;padding:0.5rem 0.85rem;border-radius:8px;overflow:hidden;cursor:default;display:flex;align-items:center;gap:0.2rem}
 .brand-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(155,89,255,0.12),rgba(106,13,173,0.08));border:1px solid rgba(155,89,255,0.08);border-radius:inherit;backdrop-filter:blur(8px)}
 
 /* Main brand text with glitch effect */
 .brand-text{position:relative;z-index:1}
-.glitch-text{font-family:'Space Grotesk',system-ui;font-weight:700;font-size:1.65rem;color:#fff;position:relative;letter-spacing:-0.02em;animation:textShine 4s linear infinite}
+.glitch-text{font-family:'Space Grotesk',system-ui;font-weight:700;font-size:1.35rem;color:#fff;position:relative;letter-spacing:-0.02em;animation:textShine 4s linear infinite}
 
 /* Glitch effect layers */
 .glitch-text::before,

@@ -8,22 +8,22 @@ const projects = [
     desc: 'Landing page modern dengan fitur AI chat assistant dan animasi smooth.',
     image: 'project1.jpg',
     tech: ['React', 'Framer Motion', 'TailwindCSS', 'OpenAI'],
-    links: { demo: '#', code: '#' }
+    links: { demo: 'https://dkycdr.github.io/dwiky-candra/ai-landing.html', code: '#' }
   },
   {
     id: 2,
-    title: 'Analytics Dashboard Pro',
+    title: 'Career Pods Explorer',
     desc: 'Dashboard real-time dengan visualisasi data interaktif dan theming system.',
     image: 'project2.jpg',
-    tech: ['React', 'D3.js', 'Material UI', 'Firebase'],
-    links: { demo: '#', code: '#' }
+    tech: ['React', 'Node.js', 'Next.js', 'PostgreSQL', 'Socket.io', ],
+    links: { demo: 'career-podsv1.vercel.app', code: '#' }
   },
   {
     id: 3,
-    title: 'E-Learning Platform UI',
+    title: 'President FoodConnect',
     desc: 'Interface modern untuk platform kursus online dengan video player custom.',
     image: 'project3.jpg',
-    tech: ['React', 'Redux', 'Styled Components', 'Video.js'],
+    tech: ['React', 'Flutter', 'Node.js', 'PostgreSQL'],
     links: { demo: '#', code: '#' }
   },
   {

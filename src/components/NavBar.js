@@ -25,7 +25,6 @@ export default function NavBar(){
     return () => obs.disconnect();
   }, []);
 
-  // update highlight position when active changes or on resize
   useEffect(() => {
     function update() {
       const nav = navRef.current;
@@ -43,7 +42,6 @@ export default function NavBar(){
     return () => window.removeEventListener('resize', update);
   }, [active]);
 
-  // hover-follow-pointer: update highlight when hovering over links
   useEffect(() => {
     const nav = navRef.current;
     if (!nav) return;
@@ -59,7 +57,6 @@ export default function NavBar(){
     }
 
     function onLeave(){
-      // restore to active after short delay for smoothness
       leaveTimer = setTimeout(()=>{
         const activeEl = nav.querySelector('a.active');
         if (!activeEl) return setHl({left:0,width:0,opacity:0});

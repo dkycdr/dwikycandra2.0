@@ -30,15 +30,15 @@ export default function Stats() {
       <div className="container stats-grid">
         <div className="stat">
           <div className="stat-num" ref={projectsRef}>0</div>
-          <div className="stat-label">Proyek</div>
+          <div className="stat-label">Project</div>
         </div>
         <div className="stat">
           <div className="stat-num" ref={clientsRef}>0</div>
-          <div className="stat-label">Klien / Kolaborasi</div>
+          <div className="stat-label">Client / Collaboration</div>
         </div>
         <div className="stat">
           <div className="stat-num" ref={hoursRef}>0</div>
-          <div className="stat-label">Jam Coding</div>
+          <div className="stat-label">Hours of Coding</div>
         </div>
       </div>
     </section>

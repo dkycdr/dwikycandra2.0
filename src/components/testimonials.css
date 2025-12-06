@@ -1,67 +1,34 @@
-.testimonials {
-    padding: 6rem 0;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(
+.testimonials{
+    padding:6rem 0;
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(
         165deg,
         rgba(155,89,255,0.05) 0%,
         transparent 50%,
         rgba(106,13,173,0.03) 100%
-    )
+    );
+    min-height:300px;
+    display:flex;
+    align-items:center
 }
 
 .container {
     width: 100%;
-    padding: 0;
     overflow: hidden;
-    position: relative;
-}
-
-.testimonials h3 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 4rem;
-    background: linear-gradient(to right, #fff, var(--accent));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    opacity: 0;
-    animation: fadeInUp 0.6s ease forwards;
 }
 
 .testi-marquee {
-    width: 100vw;
     position: relative;
+    width: 100%;
+    overflow: hidden;
 }
 
 .testi-track {
     display: flex;
     gap: 2rem;
     animation: scroll 40s linear infinite;
-    padding: 1rem;
-    width: fit-content;
-    padding-left: max(1rem, calc((100vw - 1200px) / 2));
-    padding-right: max(1rem, calc((100vw - 1200px) / 2));
-}
-
-@keyframes marquee {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(calc(-50% - 1rem));
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    padding: 1rem 0;
 }
 
 .testi-track:hover {
@@ -70,85 +37,36 @@
 
 .testi-item {
     flex: 0 0 400px;
-    background: rgba(155,89,255,0.03);
+    background: rgba(155,89,255,0.08);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(155,89,255,0.1);
-    border-radius: 24px;
-    padding: 2.5rem;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-}
-
-.testi-item::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(155,89,255,0.1),
-        transparent
-    );
-    transform: translateX(-100%);
-    transition: transform 0.8s ease;
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.4s ease;
+    transform: scale(0.98);
 }
 
 .testi-item:hover {
-    transform: translateY(-8px);
-    background: rgba(155,89,255,0.06);
-    border-color: rgba(155,89,255,0.2);
+    transform: scale(1) translateY(-5px);
+    background: rgba(155,89,255,0.12);
+    border-color: rgba(155,89,255,0.3);
     box-shadow: 
-        0 25px 50px -12px rgba(106,13,173,0.25),
-        0 0 30px -10px rgba(155,89,255,0.3);
-}
-
-.testi-item:hover::before {
-    transform: translateX(100%);
+        0 20px 40px -12px rgba(155,89,255,0.25),
+        0 0 20px -4px rgba(155,89,255,0.1);
 }
 
 .testi-text {
     color: #fff;
-    font-size: 1.25rem;
-    line-height: 1.7;
-    margin: 0 0 1.5rem;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin: 0 0 1rem;
     position: relative;
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fadeInUp 0.6s ease forwards;
-    animation-delay: 0.6s;
-}
-
-.testi-text::before {
-    content: '"';
-    position: absolute;
-    left: -1rem;
-    top: -1rem;
-    font-size: 4rem;
-    color: var(--accent);
-    opacity: 0.2;
-    font-family: serif;
 }
 
 .testi-who {
     color: var(--accent);
-    font-size: 1rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fadeInUp 0.6s ease forwards;
-    animation-delay: 0.8s;
-}
-
-.testi-who::before {
-    content: '';
-    width: 2rem;
-    height: 2px;
-    background: linear-gradient(to right, var(--accent), transparent);
-    display: block;
+    font-size: 0.9375rem;
+    font-weight: 500;
 }
 
 @keyframes scroll {
