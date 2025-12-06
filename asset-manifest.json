@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/dwikycandra2.0/static/css/main.1956e247.css",
-    "main.js": "/dwikycandra2.0/static/js/main.3f1e882c.js",
+    "main.js": "/dwikycandra2.0/static/js/main.a8e984a5.js",
     "static/js/453.50a04070.chunk.js": "/dwikycandra2.0/static/js/453.50a04070.chunk.js",
     "static/media/team-member-2.png": "/dwikycandra2.0/static/media/team-member-2.78af67f01239fc32fb17.png",
     "static/media/team-member-1.jpg": "/dwikycandra2.0/static/media/team-member-1.d2ded2244177a7664f4a.jpg",
     "static/media/profile.jpg": "/dwikycandra2.0/static/media/profile.478c7c1fc5f73b9a6908.jpg",
     "index.html": "/dwikycandra2.0/index.html",
     "main.1956e247.css.map": "/dwikycandra2.0/static/css/main.1956e247.css.map",
-    "main.3f1e882c.js.map": "/dwikycandra2.0/static/js/main.3f1e882c.js.map",
+    "main.a8e984a5.js.map": "/dwikycandra2.0/static/js/main.a8e984a5.js.map",
     "453.50a04070.chunk.js.map": "/dwikycandra2.0/static/js/453.50a04070.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1956e247.css",
-    "static/js/main.3f1e882c.js"
+    "static/js/main.a8e984a5.js"
   ]
 }
