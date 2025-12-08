@@ -3,6 +3,7 @@ import './team.css';
 import { FiGithub, FiGlobe } from 'react-icons/fi';
 import teamMember1 from '../images/team-member-1.jpg';
 import teamMember2 from '../images/team-member-2.png';
+import teamMember3 from '../images/team-member-3.jpg';
 
 export default function Team() {
   const teamMembers = [
@@ -24,18 +25,18 @@ export default function Team() {
       image: teamMember2,
       bio: 'A backend wizard who ensures our applications run smoothly and efficiently.',
       links: {
-        github: 'https://github.com/username',
-        portfolio: 'https://portfolio.com'
+        github: 'https://github.com/nicoyhnnssiraitt',
+        portfolio: 'https://nicoyhnnsirait.github.io/portfolio/'
       }
     },
     {
       id: 3,
-      name: 'Team Member Name',
-      role: 'Role / Position',
-      image: 'https://via.placeholder.com/250?text=Team+Member',
-      bio: 'Short description about the team member',
+      name: 'Rivaldo Haryono',
+      role: 'DevOps Engineer',
+      image: teamMember3,
+      bio: 'Expert in deploying and maintaining our infrastructure with ease.',
       links: {
-        github: 'https://github.com/username',
+        github: 'https://github.com/',
         portfolio: 'https://portfolio.com'
       }
     },
