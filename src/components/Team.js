@@ -26,7 +26,7 @@ export default function Team() {
       bio: 'A backend wizard who ensures our applications run smoothly and efficiently.',
       links: {
         github: 'https://github.com/nicoyhnnssiraitt',
-        portfolio: 'https://nicoyhnnsirait.github.io/portfolio/'
+        portfolio: 'https://nicoyhnnssiraitt.github.io/portfolio'
       }
     },
     {
@@ -36,8 +36,8 @@ export default function Team() {
       image: teamMember3,
       bio: 'Expert in deploying and maintaining our infrastructure with ease.',
       links: {
-        github: 'https://github.com/',
-        portfolio: 'https://portfolio.com'
+        github: 'https://github.com/xenscreww',
+        portfolio: 'https://xenscreww.github.io/portfolio'
       }
     },
     // Tambah lebih banyak team members di sini
