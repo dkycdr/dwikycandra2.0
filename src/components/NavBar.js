@@ -5,6 +5,7 @@ export default function NavBar(){
   const [active, setActive] = useState('hero');
   const navRef = useRef(null);
   const [hl, setHl] = useState({left:0,width:0,opacity:0});
+  const [activeHl, setActiveHl] = useState({left:0,width:0,opacity:0});
 
   useEffect(() => {
     const sections = Array.from(document.querySelectorAll('section[id]'));
@@ -28,14 +29,14 @@ export default function NavBar(){
   useEffect(() => {
     function update() {
       const nav = navRef.current;
-      if (!nav) return setHl({left:0,width:0,opacity:0});
+      if (!nav) return setActiveHl({left:0,width:0,opacity:0});
       const activeEl = nav.querySelector('a.active');
-      if (!activeEl) return setHl({left:0,width:0,opacity:0});
+      if (!activeEl) return setActiveHl({left:0,width:0,opacity:0});
       const navRect = nav.getBoundingClientRect();
       const r = activeEl.getBoundingClientRect();
       const left = r.left - navRect.left + nav.scrollLeft;
       const width = r.width;
-      setHl({left, width, opacity:1});
+      setActiveHl({left, width, opacity:1});
     }
     update();
     window.addEventListener('resize', update);
@@ -46,6 +47,15 @@ export default function NavBar(){
     const nav = navRef.current;
     if (!nav) return;
     let leaveTimer = null;
+    let isHovering = false;
+
+    function onMouseEnter(){
+      if (!isHovering) {
+        // Start hover from active position
+        setHl({left: activeHl.left, width: activeHl.width, opacity:0});
+        isHovering = true;
+      }
+    }
 
     function onMouseMove(e){
       const target = e.target.closest('a');
@@ -57,23 +67,22 @@ export default function NavBar(){
     }
 
     function onLeave(){
+      isHovering = false;
       leaveTimer = setTimeout(()=>{
-        const activeEl = nav.querySelector('a.active');
-        if (!activeEl) return setHl({left:0,width:0,opacity:0});
-        const navRect = nav.getBoundingClientRect();
-        const r = activeEl.getBoundingClientRect();
-        setHl({left: r.left - navRect.left + nav.scrollLeft, width: r.width, opacity:1});
-      }, 100);
+        setHl({left: activeHl.left, width: activeHl.width, opacity:0});
+      }, 150);
     }
 
+    nav.addEventListener('mouseenter', onMouseEnter);
     nav.addEventListener('mousemove', onMouseMove);
     nav.addEventListener('mouseleave', onLeave);
     return () => {
+      nav.removeEventListener('mouseenter', onMouseEnter);
       nav.removeEventListener('mousemove', onMouseMove);
       nav.removeEventListener('mouseleave', onLeave);
       if (leaveTimer) clearTimeout(leaveTimer);
     }
-  }, [navRef]);
+  }, [activeHl]);
 
   return (
     <header className="site-nav">
@@ -92,7 +101,8 @@ export default function NavBar(){
           </div>
         </div>
         <nav ref={navRef}>
-          <span className="nav-highlight" style={{left: hl.left, width: hl.width, opacity: hl.opacity}} />
+          <span className="nav-highlight-active" style={{left: activeHl.left, width: activeHl.width, opacity: activeHl.opacity}} />
+          <span className="nav-highlight-hover" style={{left: hl.left, width: hl.width, opacity: hl.opacity}} />
           <a className={active==='about' ? 'active': ''} href="#about">About</a>
           <a className={active==='projects' ? 'active': ''} href="#projects">Projects</a>
           <a className={active==='team' ? 'active': ''} href="#team">Team</a>

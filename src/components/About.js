@@ -31,6 +31,8 @@ export default function About() {
     return () => observer.disconnect();
   }, [isVisible]);
 
+
+
   return (
     <>
       <section className="about" id="about">
