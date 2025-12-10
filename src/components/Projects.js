@@ -8,7 +8,7 @@ const projects = [
     desc: 'A modern landing page featuring an AI chat assistant and smooth animations.',
     image: 'project1.jpg',
     tech: ['React', 'Framer Motion', 'TailwindCSS', 'OpenAI'],
-    links: { demo: 'https://dkycdr.github.io/dwiky-candra/ai-landing.html', code: '#'},
+    links: { demo: 'https://dkycdr.github.io/dwiky-candra/ai-landing.html', code: '#' },
     role: 'Personal Project',
     jobDesc: 'Full ownership of project design and implementation. Responsible for UI/UX design, component architecture, API integration with OpenAI, and deployment.'
   },
@@ -17,7 +17,7 @@ const projects = [
     title: 'Career Pods Explorer',
     desc: 'Career Pods help President University students with career guidance, skill-building, mentorship, events, and easy access to resources.',
     image: 'project2.jpg',
-    tech: ['React', 'Node.js', 'Next.js', 'PostgreSQL', 'Socket.io', ],
+    tech: ['React', 'Node.js', 'Next.js', 'PostgreSQL', 'Socket.io',],
     links: { demo: 'https://career-podsv1.vercel.app', code: '#' },
     role: 'Project Manager',
     jobDesc: 'Led cross-functional team coordinating development timeline, feature prioritization, and stakeholder communication. Managed sprint cycles, conducted code reviews, and ensured project delivery within deadlines.'
@@ -27,7 +27,7 @@ const projects = [
     title: 'President FoodConnect',
     desc: 'President FoodConnect is a platform connecting students with local food vendors, offering seamless ordering and delivery services.',
     image: 'project3.jpg',
-    tech: ['React', 'Flutter', 'Node.js', 'PostgreSQL'],
+    tech: ['React', 'Next.js', 'Flutter', 'Node.js', 'PostgreSQL'],
     links: { demo: '#', code: '#' },
     role: 'Project Manager',
     jobDesc: 'Oversaw end-to-end project coordination between frontend and backend teams. Responsible for requirements gathering, timeline management, risk mitigation, and final product delivery coordination.'
@@ -41,6 +41,16 @@ const projects = [
     links: { demo: '#', code: '#' },
     role: 'Fullstack Developer',
     jobDesc: 'Developed both frontend and backend components. Built responsive UI with React/Next.js, implemented real-time features using Socket.io, designed database schemas, and created RESTful APIs for client management and service delivery.'
+  },
+  {
+    id: 5,
+    title: 'Digital Notes',
+    desc: 'Digital Notes is a personal project for managing notes with real-time collaboration features.',
+    image: 'project5.jpg',
+    tech: ['React', 'Next.js', 'TypeScript', 'Node.js'],
+    links: { demo: 'https://digital-notes-beige.vercel.app', code: '#' },
+    role: 'Personal Project',
+    jobDesc: 'Designed and implemented a note-taking application with real-time collaboration. Developed frontend using React/Next.js, backend with Node.js, and integrated WebSocket for live updates. Focused on user authentication, note sharing, and responsive design.'
   }
 ];
 
@@ -76,7 +86,7 @@ export default function Projects() {
           <h2>Featured Projects</h2>
           <p className="section-desc">A selection of my top projects showcasing modern technology.</p>
         </div>
-        
+
         <div className="grid" ref={gridRef}>
           {projects.map(p => (
             <div key={p.id} className="card">
@@ -110,7 +120,7 @@ export default function Projects() {
       {selectedRole && (
         <div className="role-modal-overlay" onClick={() => setSelectedRole(null)}>
           <div className="role-modal" onClick={(e) => e.stopPropagation()}>
-            <button 
+            <button
               className="modal-close"
               onClick={() => setSelectedRole(null)}
               aria-label="Close"

@@ -100,7 +100,7 @@ export default function About() {
 
             <div className="skills" ref={skillsRef}>
               <h3>Skills & Confidence Level</h3>
-              
+
               {/* Frontend Skills */}
               <div className="skill-category">
                 <h4>Frontend Development</h4>
@@ -150,11 +150,11 @@ export default function About() {
 
                 <div className="skill-item">
                   <div className="skill-info">
-                    <span className="skill-name">Express.js</span>
-                    <span className="skill-percent">50%</span>
+                    <span className="skill-name">Next.js</span>
+                    <span className="skill-percent">70%</span>
                   </div>
-                  <div className="skill-bar" data-percent="50"></div>
-                </div>  
+                </div>
+                <div className="skill-bar" data-percent="70"></div>
 
                 <div className="skill-item">
                   <div className="skill-info">

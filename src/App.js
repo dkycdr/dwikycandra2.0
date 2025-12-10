@@ -35,7 +35,6 @@ function App() {
     const handleMouseMove = (e) => {
       const mouseX = (e.clientX / window.innerWidth) * 30 - 15;
       const mouseY = (e.clientY / window.innerHeight) * 30 - 15;
-      
       document.documentElement.style.setProperty('--mouse-x', `${mouseX}deg`);
       document.documentElement.style.setProperty('--mouse-y', `${mouseY}deg`);
     };
@@ -64,10 +63,10 @@ function App() {
               <a href="https://github.com/dkycdr" target="_blank" rel="noopener noreferrer" title="GitHub" className="social-link">
                 <FiGithub />
               </a>
-              <a href="https://linkedin.com/in/dwikycandra" target="_blank" rel="noopener noreferrer" title="LinkedIn" className="social-link">
+              <a href="https://linkedin.com/in/dwiky-candra" target="_blank" rel="noopener noreferrer" title="LinkedIn" className="social-link">
                 <FiLinkedin />
               </a>
-              <a href="https://instagram.com/dwikycandra" target="_blank" rel="noopener noreferrer" title="Instagram" className="social-link">
+              <a href="https://instagram.com/dky_cdr" target="_blank" rel="noopener noreferrer" title="Instagram" className="social-link">
                 <FiInstagram />
               </a>
             </div>
