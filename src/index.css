@@ -13,6 +13,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   letter-spacing: 0.3px;
+  background: #0a0a0f;
+  min-height: 100vh;
 }
 
 code {

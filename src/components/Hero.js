@@ -1,14 +1,24 @@
 import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import './hero.css';
 import { FiGithub, FiCode, FiLayout, FiZap, FiArrowRight, FiServer, FiDatabase } from 'react-icons/fi';
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedSkill, setSelectedSkill] = useState(null);
+  const [isClosing, setIsClosing] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  const handleCloseModal = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setSelectedSkill(null);
+      setIsClosing(false);
+    }, 400); // Match animation duration
+  };
 
   const skillDetails = [
     {
@@ -149,13 +159,13 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Modal Popup */}
-      {selectedSkill && (
-        <div className="skill-modal-overlay" onClick={() => setSelectedSkill(null)}>
-          <div className="skill-modal" onClick={(e) => e.stopPropagation()}>
+      {/* Modal Popup - Rendered via Portal */}
+      {selectedSkill && createPortal(
+        <div className={`skill-modal-overlay ${isClosing ? 'closing' : ''}`} onClick={handleCloseModal}>
+          <div className={`skill-modal ${isClosing ? 'closing' : ''}`} onClick={(e) => e.stopPropagation()}>
             <button 
               className="modal-close"
-              onClick={() => setSelectedSkill(null)}
+              onClick={handleCloseModal}
               aria-label="Close"
             >
               ✕
@@ -188,7 +198,8 @@ export default function Hero() {
               </ul>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );

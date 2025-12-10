@@ -6,8 +6,8 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Team from './components/Team';
 import Contact from './components/Contact';
-import Cube3D from './components/Cube3D';
 import ChatBot from './components/ChatBot';
+import Plasma from './components/Plasma';
 import { FiGithub, FiLinkedin, FiInstagram } from 'react-icons/fi';
 
 function App() {
@@ -45,7 +45,14 @@ function App() {
 
   return (
     <div className="App">
-      <Cube3D />
+      <Plasma
+        color="#9b59ff"
+        speed={0.6}
+        direction="forward"
+        scale={1.1}
+        opacity={0.3}
+        mouseInteractive={true}
+      />
       <NavBar />
       <Hero />
       <main>

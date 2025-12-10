@@ -47,31 +47,42 @@ export default function ChatBot() {
 
   const botResponses = {
     greeting: [
-      "Hey there! 👋 I'm here to help. Ask me about Dwiky's projects, skills, or experience!",
-      "Hi! 😊 Feel free to ask me anything about Dwiky or his work.",
-      "Welcome! 🎉 I'm Dwiky's AI assistant. What would you like to know?",
-      "Halo! Great to see you here. Ask me anything about Dwiky's work! 💻",
-      "Hello! Hope you're having a great day. How can I assist you with Dwiky's portfolio today?",
-      "Hi there! I'm ready to answer your questions about Dwiky's coding journey. 🚀",
-      "Greetings! 👋 Need to know about Dwiky's latest projects? Just ask!",
-      "Yo! I'm the digital Dwiky-bot. Ask me anything!",
-      "Hi friend! 👋 Curious about how this site was built or who built it? I can tell you!",
-      "Welcome aboard! 🛳️ I'm your guide to the Dwiky-verse.",
-      "Hello world! 🌍 (That's a classic greeting, right?) How can I help?",
-      "Hey! Dwiky is currently coding away, but I can answer your questions in the meantime. 🤖"
+      "Hello! I'm Dwiky's AI assistant. I'm here to answer questions about his projects, skills, and experience. How may I help you?",
+      "Welcome! I can provide information about Dwiky's work, technical expertise, and professional background. What would you like to know?",
+      "Greetings! I'm here to assist you with any questions about Dwiky's portfolio and capabilities. Feel free to ask anything.",
+      "Hello! Thank you for visiting. I'm available to discuss Dwiky's projects, technical skills, and professional experience. How can I assist?",
+      "Welcome to Dwiky's portfolio. I'm here to provide information about his work and expertise. What interests you?",
+      "Hi there! I can help you learn more about Dwiky's development work, project experience, and technical capabilities. What would you like to explore?",
+      "Hello! I'm Dwiky's AI assistant, ready to answer your questions about his professional work and technical expertise.",
+      "Welcome! I'm here to provide insights into Dwiky's projects, skills, and development experience. How may I assist you today?",
+      "Greetings! Feel free to ask about Dwiky's portfolio, technical stack, project experience, or professional background.",
+      "Hello! I can share information about Dwiky's work as a full-stack developer and project manager. What would you like to know?",
+      "Welcome! I'm here to discuss Dwiky's professional experience, technical skills, and project portfolio. How can I help?",
+      "Hi! I'm available to answer questions about Dwiky's development work, leadership experience, and technical capabilities.",
+      "Hello! Thank you for your interest. I can provide details about Dwiky's projects, skills, and professional background.",
+      "Welcome! I'm here to help you understand Dwiky's expertise and experience. What aspect would you like to explore?",
+      "Greetings! I can discuss Dwiky's technical skills, project portfolio, and professional experience. What interests you?"
     ],
     projects: [
       "Dwiky has worked on some amazing projects! 🚀\n\n1. **AI-Powered Landing Page** - Modern landing with AI chat assistant\n2. **Career Pods Explorer** - Career guidance platform for President University\n3. **President FoodConnect** - Food ordering & delivery platform\n4. **Z Studio** - Creative services marketplace\n\nWant to know more about any specific project?",
       "His portfolio includes 4 major projects spanning from AI integration to full-stack platforms. He's worked as a Developer, Project Manager, and Team Lead!",
-      "Career Pods and Z Studio are his standout projects—both involve complex features like real-time communication (Socket.io), database design, and team coordination. Impressive work! 🎯",
+      "Career Pods and Z Studio are his standout projects—both involve complex features like real-time communication, database design, and team coordination. Impressive work! 🎯",
       "Check out the **AI-Powered Landing Page** for a demo of his frontend skills, or **FoodConnect** to see his full-stack capabilities in action. 🍔",
       "From marketplace platforms like **Z Studio** to educational tools like **Career Pods**, Dwiky builds solutions that solve real problems.",
-      "He loves building things! Ask about his experience with **Next.js** or **Socket.io** in these projects.",
+      "He loves building things! Each project showcases different aspects of his full-stack expertise.",
       "If you're into complex backend logic, look at **Career Pods** (it has a matching algorithm). If you like smooth UIs, check out the **Landing Page**! ✨",
       "Each project taught him something new. FoodConnect taught him logistics logic, Career Pods taught him algorithm design, and Z Studio taught him marketplace dynamics.",
       "He doesn't just write code; he builds products. 🛠️ His projects demonstrate a focus on user value and stability.",
       "Ask me specifically about 'FoodConnect' or 'Career Pods' for deep dives!",
-      "This website specifically? It's his portfolio! Built with React and love. ❤️"
+      "This website specifically? It's his portfolio! Built with modern tech and love. ❤️",
+      "Four major projects, each one more impressive than the last! He's constantly leveling up! 📈",
+      "His projects range from AI integration to real-time platforms. Versatility is his strength! 💪",
+      "Every project solves a real problem for real users. That's what drives him! 🎯",
+      "Want to see what he can build for you? His projects speak for themselves! 🚀",
+      "From solo projects to team leadership, he's done it all! Check out the Projects section! 👀",
+      "Each project is a testament to his growth as a developer. Always improving! 📊",
+      "He's built for students, for businesses, for creatives. Diverse experience! 🌈",
+      "The projects section showcases his best work. Scroll down to see them all! ⬇️"
     ],
     skills: [
       "Dwiky's main skills include:\n• **Frontend**: React, Next.js, TypeScript, Tailwind CSS, Framer Motion\n• **Backend**: Node.js, PostgreSQL, Socket.io\n• **Tools**: Git, REST APIs, Real-time Features\n• **Currently exploring**: Generative AI\n\nUI/UX design and clean code are his specialties! 🎨",
@@ -79,11 +90,20 @@ export default function ChatBot() {
       "He can build responsive web apps, design beautiful interfaces, manage databases, implement real-time features, and coordinate cross-functional teams. Full-stack capabilities! 🔧",
       "JavaScript/TypeScript, React/Next.js, Node.js, PostgreSQL, Socket.io, TailwindCSS, Framer Motion. Plus strong project management and UI/UX design skills.",
       "Beyond coding, Dwiky is skilled in **Project Management**, **Agile/Scrum**, and **UI/UX Design**. A well-rounded developer! 👨‍💻",
-      "He's proficient in modern web nuances: Server-Side Rendering (SSR), Static Site Generation (SSG), and real-time event handling.",
+      "He's proficient in modern web development: Server-Side Rendering, Static Site Generation, and real-time event handling.",
       "He speaks fluent Keyboards. ⌨️ Just kidding. He's great at JS, TS, SQL, and English!",
       "From pixel-perfect CSS to optimized SQL queries, he's got the full stack covered.",
-      "He's also comfortable with deployment (Vercel), version control (Git), and API testing (Postman).",
-      "Wait, did I mention he's learning usage of LLMs? Because he totally is. 🤖"
+      "He's also comfortable with deployment, version control (Git), and API testing.",
+      "Wait, did I mention he's learning AI/ML integration? Because he totally is. 🤖",
+      "Full-stack means he can handle everything from database design to button animations! 🎯",
+      "He's a T-shaped developer: broad knowledge across the stack, deep expertise in frontend! 📊",
+      "Modern JavaScript frameworks? Check. Database optimization? Check. Beautiful UIs? Double check! ✅",
+      "He writes code that's not just functional, but maintainable and scalable too! 📈",
+      "His skill set keeps growing. Always learning, always improving! 🌱",
+      "Technical skills + design sense + project management = the complete package! 📦",
+      "He can take a project from wireframe to deployment, handling every step! 🚀",
+      "Frontend, backend, database, deployment - he's done it all! 💻",
+      "His skills aren't just theoretical. They're battle-tested in real projects! ⚔️"
     ],
     about: [
       "Dwiky is a student at President University 🎓 passionate about clean, intuitive interfaces and exploring AI in web development. He codes with both heart and mind! 💡",
@@ -93,7 +113,16 @@ export default function ChatBot() {
       "Driven by curiosity and a passion for excellence, Dwiky balances his university studies with professional-grade development work.",
       "He believes in 'Learning by Doing'. Most of his skills were honed through building real projects.",
       "He's not just a student; he's a practitioner. 📚+💻 = 🚀",
-      "Fun fact: He probably has 10 tabs of documentation open right now. 📑"
+      "Fun fact: He probably has 10 tabs of documentation open right now. 📑",
+      "Based in Cikarang, Indonesia, but his work reaches globally through the web! 🌍",
+      "He's the kind of developer who cares about both the code quality AND the user experience! 🎯",
+      "Young, talented, and hungry to learn. That's Dwiky in a nutshell! 🌟",
+      "He doesn't just follow trends; he understands the fundamentals that make great software! 💪",
+      "A developer who thinks like a designer, and a designer who codes. Best of both worlds! 🎨",
+      "He's proof that you don't need decades of experience to build amazing things! ⚡",
+      "Passionate about web development, obsessed with user experience, excited about AI! 🤖",
+      "He's building his portfolio one awesome project at a time! 📈",
+      "From student to developer to project manager - he's wearing many hats and rocking them all! 🎩"
     ],
     experience: [
       "Dwiky's experience includes:\n\n📌 **AI-Powered Landing Page** - Solo developer\n📌 **Career Pods** - Project Manager, led cross-functional team\n📌 **FoodConnect** - PM & full-stack developer\n📌 **Z Studio** - Fullstack developer\n\nRoles: Developer, PM, Team Lead! 🎯",
@@ -111,7 +140,15 @@ export default function ChatBot() {
       "Want to collaborate? Drop a message via the contact form or connect on LinkedIn!",
       "Slide into his DMs on LinkedIn for professional inquiries, or check out his code on GitHub.",
       "Don't be shy! He loves connecting with other devs and potential clients. 👋",
-      "Network with him! He's always open to a virtual coffee chat. ☕"
+      "Network with him! He's always open to a virtual coffee chat. ☕",
+      "Scroll down to the Contact section and send him a message directly! 📬",
+      "He responds to messages pretty quickly. Don't hesitate to reach out! ⚡",
+      "Looking to hire or collaborate? The contact form is your best bet! 💼",
+      "He's friendly and approachable. Send a message and start the conversation! 💬",
+      "GitHub for code, LinkedIn for professional stuff, Instagram for the personal side! 📱",
+      "Multiple ways to connect - choose what works best for you! 🎯",
+      "He's always excited to hear about new opportunities and projects! 🚀",
+      "Got a question? A project idea? Just want to say hi? Reach out! 👋"
     ],
     education: [
       "Dwiky is a student at **President University** 🎓 Balancing academic coursework with real-world commercial projects!",
@@ -192,12 +229,75 @@ export default function ChatBot() {
       "Reliable, skilled, and passionate. He delivers high-quality web applications that stand out.",
       "He treats your project like his own. Quality guaranteed. ✅"
     ],
+    website: [
+      "This portfolio website demonstrates modern web development principles with smooth animations, interactive effects, and a cohesive purple theme throughout.",
+      "The site features glassmorphism effects, 3D tilt interactions, physics-based animations, and responsive design optimized for all devices.",
+      "Key features include:\n• **Interactive Plasma Background** - Real-time WebGL shader animation\n• **3D Tilt Cards** - Physics-based mouse interactions\n• **Glassmorphism Design** - Modern frosted glass aesthetics\n• **AI Chatbot** - Intelligent conversational interface\n• **Smooth Animations** - Hardware-accelerated transitions",
+      "The purple theme (#9b59ff) serves as the primary accent color, creating visual consistency from navigation to project cards. Clean, modern, and professional.",
+      "This portfolio showcases Dwiky's frontend expertise: component architecture, CSS animations, WebGL graphics, and responsive design patterns. It's both a showcase and a technical demonstration.",
+      "Every element is optimized for performance and user experience. Fast load times, smooth 60fps animations, and intuitive interactions throughout.",
+      "The design philosophy emphasizes clarity, elegance, and user-focused interactions. Each element serves a purpose in the overall experience.",
+      "From the animated background to the interactive project cards, every detail is crafted to engage visitors while maintaining professional standards.",
+      "This portfolio represents the quality and attention to detail Dwiky brings to every project. Interested in similar work? Let's discuss your needs.",
+      "Built with modern web standards and best practices. The result: a fast, beautiful, and accessible experience across all devices."
+    ],
+    portfolio_tech: [
+      "While I can't disclose the specific tech stack of this portfolio site, I can share that Dwiky typically works with React, Next.js, TypeScript, and modern animation libraries for similar projects.",
+      "This site demonstrates professional-grade frontend development capabilities. For specific technical implementation details about this portfolio, please reach out to Dwiky directly via the contact form.",
+      "The portfolio showcases modern web development best practices. If you're interested in the technical architecture, Dwiky would be happy to discuss during a project consultation.",
+      "I can tell you that Dwiky's general tech stack includes React ecosystem, TypeScript, Node.js, and PostgreSQL - but this specific site's implementation details are proprietary.",
+      "The animations utilize physics-based motion systems for natural, smooth transitions. For more technical details about this portfolio's implementation, please contact Dwiky directly.",
+      "This site represents modern web development standards and best practices. If you're interested in building something similar, Dwiky can discuss the technical approach and recommend the optimal stack for your needs.",
+      "The implementation leverages cutting-edge web technologies while maintaining broad browser compatibility. For specific technical questions about this portfolio, reach out via the contact form.",
+      "Interested in the technical details or building something similar? Dwiky can provide insights and recommendations tailored to your project requirements. Let's connect!"
+    ],
+    features: [
+      "Site features:\n✨ **Interactive Plasma Background** - Animated shader effects\n🎴 **3D Tilting Project Cards** - Hover to see the effect\n💬 **AI Chatbot** - Real-time AI responses (that's me!)\n🎨 **Glassmorphism Design** - Modern transparent effects\n📱 **Fully Responsive** - Works on all devices",
+      "The project cards have a cool 3D tilt effect! They respond to your mouse movement with smooth spring animations. Try it out in the Projects section! 🎮",
+      "This chatbot uses AI to provide intelligent responses about Dwiky and his work. It's a live demo of AI integration! 🤖",
+      "The glassmorphism effects (transparent, blurred backgrounds) are everywhere - navbar, cards, chatbot. It's a modern design trend that Dwiky loves! 💎",
+      "Every interaction is smooth and responsive. From button hovers to page scrolls, it all feels natural! ✨",
+      "The background is fully interactive - it responds to your mouse movement in real-time! 🌊",
+      "Notice how everything glows purple? That's the signature color scheme, carefully applied throughout! 💜",
+      "The site has smooth scroll navigation, animated entrances, and delightful micro-interactions everywhere! 🎭",
+      "All animations are hardware-accelerated for buttery smooth 60fps performance! 🚀",
+      "The cards, buttons, and sections all have unique hover effects. Try exploring! 🎯"
+    ],
+    sections: [
+      "The website has these sections:\n🏠 **Hero** - Landing with animated intro\n👤 **About** - Profile card with 3D effects\n💼 **Projects** - Showcase of work with tilt cards\n👥 **Team** - Team members\n📧 **Contact** - Get in touch form\n\nScroll down to explore! 📜",
+      "Check out the **About section** for Dwiky's profile card with holographic effects! It's interactive and responds to mouse movement. 🎴",
+      "The **Projects section** showcases his work with 3D tilting cards. Each card has glassmorphism effects and smooth hover animations. 🚀",
+      "Don't miss the **Contact section** at the bottom! You can reach out directly through the form. 📧"
+    ],
+    animations: [
+      "The site is full of smooth animations! From the Plasma background to the 3D tilt cards, everything moves naturally using Framer Motion's spring physics. 🎭",
+      "Hover effects are everywhere - project cards tilt in 3D, buttons glow, and the navbar highlights smoothly. It's all about that smooth UX! ✨",
+      "The Plasma background is a real-time WebGL shader that responds to mouse movement. It's not a video or GIF - it's pure code! 🌊",
+      "All animations use `cubic-bezier` easing and spring physics for natural, smooth motion. No janky animations here! 🎯"
+    ],
+    colors: [
+      "The color scheme is based on purple (#9b59ff) as the primary accent color, with dark backgrounds and glassmorphism effects. It's modern, clean, and professional! 💜",
+      "Purple represents creativity and technology - perfect for a developer portfolio! The gradient variations create depth and visual interest. 🎨",
+      "The glassmorphism effects use semi-transparent backgrounds with backdrop-filter blur, creating that frosted glass look. Very 2024! 💎"
+    ],
+    performance: [
+      "The site is optimized for performance:\n⚡ **Fast Load Times** - Deployed on Vercel CDN\n🎯 **Optimized Assets** - Compressed images and code\n📱 **Responsive Design** - Works on all devices\n🚀 **Smooth 60fps Animations** - Hardware-accelerated\n\nNo lag, just smooth experience! 💨",
+      "All animations use CSS transforms and GPU acceleration for smooth 60fps performance. Even the WebGL Plasma background is optimized! 🎮",
+      "The site is built with React best practices: code splitting, lazy loading, and optimized re-renders. Fast and efficient! ⚡"
+    ],
+    responsive: [
+      "The site is fully responsive! It looks great on desktop, tablet, and mobile. Try resizing your browser to see the adaptive layout! 📱💻",
+      "Mobile-first design approach ensures the site works perfectly on all screen sizes. The animations adapt too! 📲",
+      "On mobile, some effects are simplified for better performance, but the experience is still smooth and beautiful! 🎯"
+    ],
     thankyou: [
-      "You're very welcome! If you have more questions, just ask. 😊",
-      "Happy to help! Let me know if there's anything else you need.",
-      "My pleasure! Thanks for stopping by.",
-      "No problem at all! Have a great day! 👋",
-      "Anytime! Keep being awesome. ✨"
+      "You're welcome! Feel free to ask if you have any other questions.",
+      "Happy to assist! Let me know if there's anything else you'd like to know.",
+      "My pleasure! Thank you for your interest in Dwiky's work.",
+      "You're welcome! Don't hesitate to reach out if you need more information.",
+      "Glad I could help! Feel free to ask additional questions anytime.",
+      "You're very welcome! I'm here if you need anything else.",
+      "Happy to provide information! Let me know how else I can assist you."
     ],
     philosophy: [
       "Dwiky believes that 'Code is Poetry'. Every line should be clean, and every pixel should be perfect. 🖋️",
@@ -267,17 +367,103 @@ export default function ChatBot() {
       "Meaningful variable names, small functions, and DRY (Don't Repeat Yourself) principles.",
       "If you have to explain it with a comment, maybe the code isn't clean enough. (But comments are still good!)"
     ],
+    collaboration: [
+      "Dwiky loves collaborating with other developers and designers! He's always open to interesting projects. 🤝",
+      "Want to work together? He's experienced in team environments and knows how to coordinate effectively! 💼",
+      "He's worked on teams ranging from 2 to 5+ people. Great at communication and collaboration! 👥",
+      "Open source contributions? Team projects? Freelance work? He's interested in all of it! 🚀",
+      "He believes the best products come from great teamwork. Let's build something together! ✨",
+      "Collaboration is key to great software. Dwiky brings both technical skills and team spirit! 🎯"
+    ],
+    learning: [
+      "Dwiky is a continuous learner! Always exploring new technologies and best practices. 📚",
+      "He learns by doing - building real projects is his favorite way to master new skills! 🛠️",
+      "Currently diving deep into AI/ML and how to integrate it into web applications! 🤖",
+      "He follows industry trends, reads documentation, and experiments with new tools constantly! 📖",
+      "Learning never stops in tech. Dwiky stays updated with the latest in web development! 🚀",
+      "From online courses to hands-on projects, he's always expanding his skill set! 💡",
+      "He believes in learning in public - sharing knowledge and growing together with the community! 🌱"
+    ],
+    inspiration: [
+      "Dwiky is inspired by clean design, smooth user experiences, and the potential of AI! ✨",
+      "He draws inspiration from modern web apps that prioritize user experience above all! 🎨",
+      "Great design and great code inspire him to keep pushing his boundaries! 🚀",
+      "He's motivated by solving real problems with elegant technical solutions! 💡",
+      "The intersection of design and technology is where he finds his creative spark! ⚡",
+      "Seeing users enjoy the products he builds - that's the ultimate inspiration! 😊"
+    ],
+    challenges: [
+      "Every project has challenges! Dwiky tackles them with patience, research, and creativity. 💪",
+      "He's debugged complex issues, optimized slow queries, and refactored messy code. All part of the journey! 🐛",
+      "Challenges are opportunities to learn. He approaches them methodically and doesn't give up! 🎯",
+      "From tricky bugs to tight deadlines, he's handled it all with professionalism! ⚡",
+      "The hardest problems often lead to the best solutions. He loves a good challenge! 🧩",
+      "He's learned that most 'impossible' problems just need the right approach and persistence! 🔥"
+    ],
+    teamwork: [
+      "Teamwork makes the dream work! Dwiky has led and contributed to multiple team projects. 👥",
+      "He's great at code reviews, pair programming, and knowledge sharing with teammates! 🤝",
+      "Communication is key. He keeps teams aligned with clear updates and documentation! 📝",
+      "He's worked with designers, backend devs, and product managers - true cross-functional experience! 🎯",
+      "Leading Career Pods taught him how to coordinate diverse teams toward a common goal! 🚀",
+      "He values every team member's input and creates an environment where everyone can contribute! ✨"
+    ],
+    debugging: [
+      "Debugging is like detective work - and Dwiky is pretty good at it! 🔍",
+      "Console.log is his friend, but he also uses proper debugging tools and techniques! 🐛",
+      "He approaches bugs systematically: reproduce, isolate, fix, test, document! 📋",
+      "Some bugs are tricky, but he's patient and methodical. Every bug is a learning opportunity! 💡",
+      "He's fixed everything from typos to race conditions to memory leaks. All in a day's work! 🛠️",
+      "The satisfaction of finally fixing that one stubborn bug? Priceless! 😄"
+    ],
+    deployment: [
+      "Dwiky knows how to ship! From local dev to production deployment, he's got it covered. 🚀",
+      "He's deployed projects on various platforms with CI/CD pipelines and monitoring! ⚡",
+      "Deployment isn't the end - he monitors performance and fixes issues post-launch too! 📊",
+      "He understands the full lifecycle: develop, test, deploy, monitor, iterate! 🔄",
+      "Getting code to production safely and reliably is a skill he's honed through experience! 🎯",
+      "He's handled everything from simple static sites to complex full-stack applications! 💻"
+    ],
+    optimization: [
+      "Performance matters! Dwiky optimizes for speed, efficiency, and user experience. ⚡",
+      "He knows how to profile, identify bottlenecks, and implement optimizations! 📊",
+      "From lazy loading to code splitting to caching strategies - he's got the tools! 🛠️",
+      "Fast load times and smooth interactions are non-negotiable in his projects! 🚀",
+      "He optimizes both frontend (bundle size, rendering) and backend (queries, caching)! 💻",
+      "60fps animations, sub-second load times - that's the standard he aims for! 🎯"
+    ],
+    accessibility: [
+      "Dwiky cares about accessibility! Web apps should work for everyone. ♿",
+      "He implements semantic HTML, ARIA labels, and keyboard navigation! ⌨️",
+      "Accessible design is good design. It benefits all users, not just those with disabilities! ✨",
+      "He tests with screen readers and follows WCAG guidelines for inclusive experiences! 🎯",
+      "Color contrast, focus states, alt text - all the details matter! 🎨",
+      "Building for everyone means considering diverse needs from the start! 🌍"
+    ],
+    security: [
+      "Security is important! Dwiky follows best practices to keep applications safe. 🔒",
+      "He implements proper authentication, input validation, and secure data handling! 🛡️",
+      "From SQL injection prevention to XSS protection, he knows the common vulnerabilities! ⚠️",
+      "He never stores sensitive data in plain text and always uses secure connections! 🔐",
+      "Security isn't an afterthought - it's built in from the beginning! 🎯",
+      "He stays updated on security best practices and applies them to every project! 📚"
+    ],
     default: [
-      "That's a great question! 🤔 You can ask me about Dwiky's projects, skills, experience, education, tech stack, AI interests, or how to reach him.",
-      "I'm here to help! Tell me what you'd like to know about Dwiky—his work, projects, background, or how to collaborate. 😊",
-      "That's interesting! Feel free to ask about his projects, skills, experience, or anything web development related. 💡",
-      "Good question! Ask me about Career Pods, Z Studio, FoodConnect, his tech stack, leadership experience, or how to get in touch. 🚀",
-      "I'm listening! You can ask about his hobbies, where he's located, or why you should work with him.",
-      "Not sure what to ask? Try asking about his latest project or his favorite tech stack!",
-      "I have answers about his Code, his Coffee habits (maybe), and his Career! What's on your mind?",
-      "You can ask me almost anything about Dwiky. If I don't know, I'll tell you to ask him directly!",
-      "Ask me about 'Z Studio' or 'Career Pods' to see his specific project work.",
-      "Tell me a joke? Ask about music? I can do those too!"
+      "I can provide information about Dwiky's projects, technical skills, experience, education, and professional background. What would you like to know?",
+      "I'm here to assist with questions about Dwiky's work, projects, technical expertise, or how to collaborate. How can I help?",
+      "Feel free to ask about Dwiky's projects, skills, experience, or any aspect of his web development work.",
+      "I can discuss Career Pods, Z Studio, FoodConnect, his technical stack, leadership experience, or contact information. What interests you?",
+      "You can ask about Dwiky's location, availability, professional background, or why he'd be a great fit for your project.",
+      "I have information about Dwiky's development process, design philosophy, technical tools, and project experience. What would you like to explore?",
+      "I can answer questions about Dwiky's professional work and capabilities. If I don't have specific information, I'll direct you to contact him directly.",
+      "Ask me about specific projects like 'Z Studio' or 'Career Pods' to learn about his detailed work experience.",
+      "I can discuss Dwiky's technical approach, project methodology, and professional experience. What aspect interests you?",
+      "I'm here to provide comprehensive information about Dwiky's work and expertise. What would you like to know?",
+      "You can inquire about his projects, technical skills, hiring availability, or professional background. How may I assist?",
+      "I have detailed information about Dwiky's work, approach, and experience. What specific area would you like to explore?",
+      "Feel free to ask about technical capabilities, project portfolio, or professional qualifications. I'm here to help.",
+      "I can provide insights into Dwiky's development work, leadership experience, and technical expertise. What interests you?",
+      "Ask me anything about Dwiky's professional background, project experience, or technical capabilities."
     ]
   };
 
@@ -374,6 +560,46 @@ export default function ChatBot() {
       return botResponses.whyhire[Math.floor(Math.random() * botResponses.whyhire.length)];
     }
 
+    // Website & Portfolio Site
+    if (message.match(/\b(this site|this website|portfolio site|how.*built|plasma|background|webgl|shader|glassmorphism|tilt|card effect)\b/)) {
+      return botResponses.website[Math.floor(Math.random() * botResponses.website.length)];
+    }
+
+    // Portfolio Tech Stack
+    if (message.match(/\b(site.*tech|website.*tech|portfolio.*tech|ogl|framer.*motion|what.*use.*site)\b/)) {
+      return botResponses.portfolio_tech[Math.floor(Math.random() * botResponses.portfolio_tech.length)];
+    }
+
+    // Site Features
+    if (message.match(/\b(feature|interactive|effect|animation.*site|cool.*site|impressive)\b/)) {
+      return botResponses.features[Math.floor(Math.random() * botResponses.features.length)];
+    }
+
+    // Site Sections
+    if (message.match(/\b(section|page|navigate|scroll|hero|about.*section|project.*section|contact.*section)\b/)) {
+      return botResponses.sections[Math.floor(Math.random() * botResponses.sections.length)];
+    }
+
+    // Animations
+    if (message.match(/\b(animation|smooth|transition|hover|motion|spring|physics)\b/)) {
+      return botResponses.animations[Math.floor(Math.random() * botResponses.animations.length)];
+    }
+
+    // Colors & Theme
+    if (message.match(/\b(color|purple|theme|gradient|style|aesthetic)\b/)) {
+      return botResponses.colors[Math.floor(Math.random() * botResponses.colors.length)];
+    }
+
+    // Performance
+    if (message.match(/\b(performance|fast|speed|optimize|load.*time|fps)\b/)) {
+      return botResponses.performance[Math.floor(Math.random() * botResponses.performance.length)];
+    }
+
+    // Responsive Design
+    if (message.match(/\b(responsive|mobile|tablet|device|screen.*size|adaptive)\b/)) {
+      return botResponses.responsive[Math.floor(Math.random() * botResponses.responsive.length)];
+    }
+
     // Thank You
     if (message.match(/\b(thank|thanks|thx|tq|makasih|arigato|cheers|cool|awesome|great|nice)\b/)) {
       return botResponses.thankyou[Math.floor(Math.random() * botResponses.thankyou.length)];
@@ -437,6 +663,56 @@ export default function ChatBot() {
     // Clean Code
     if (message.match(/\b(clean code|best practice|refactor)\b/)) {
       return botResponses.clean_code[Math.floor(Math.random() * botResponses.clean_code.length)];
+    }
+
+    // Collaboration
+    if (message.match(/\b(collaborat|work together|team up|partner|join|contribute)\b/)) {
+      return botResponses.collaboration[Math.floor(Math.random() * botResponses.collaboration.length)];
+    }
+
+    // Learning
+    if (message.match(/\b(learn|study|course|tutorial|education|training|self-taught)\b/)) {
+      return botResponses.learning[Math.floor(Math.random() * botResponses.learning.length)];
+    }
+
+    // Inspiration
+    if (message.match(/\b(inspir|motivat|passion|drive|love|enjoy)\b/)) {
+      return botResponses.inspiration[Math.floor(Math.random() * botResponses.inspiration.length)];
+    }
+
+    // Challenges
+    if (message.match(/\b(challeng|difficult|hard|problem|struggle|overcome|obstacle)\b/)) {
+      return botResponses.challenges[Math.floor(Math.random() * botResponses.challenges.length)];
+    }
+
+    // Teamwork
+    if (message.match(/\b(team|group|collaborat|coordinate|communication|meeting)\b/)) {
+      return botResponses.teamwork[Math.floor(Math.random() * botResponses.teamwork.length)];
+    }
+
+    // Debugging
+    if (message.match(/\b(debug|bug|error|fix|issue|troubleshoot)\b/)) {
+      return botResponses.debugging[Math.floor(Math.random() * botResponses.debugging.length)];
+    }
+
+    // Deployment
+    if (message.match(/\b(deploy|ship|launch|production|release|publish)\b/)) {
+      return botResponses.deployment[Math.floor(Math.random() * botResponses.deployment.length)];
+    }
+
+    // Optimization
+    if (message.match(/\b(optimiz|performance|fast|speed|efficient|improve)\b/)) {
+      return botResponses.optimization[Math.floor(Math.random() * botResponses.optimization.length)];
+    }
+
+    // Accessibility
+    if (message.match(/\b(accessibility|a11y|accessible|inclusive|screen reader|wcag)\b/)) {
+      return botResponses.accessibility[Math.floor(Math.random() * botResponses.accessibility.length)];
+    }
+
+    // Security
+    if (message.match(/\b(security|secure|safe|protect|vulnerability|encryption)\b/)) {
+      return botResponses.security[Math.floor(Math.random() * botResponses.security.length)];
     }
 
     // Default fallback
@@ -745,7 +1021,16 @@ Keep responses natural, conversational, and helpful. You're not just an FAQ bot�
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Open chat"
       >
-        <FiMessageCircle />
+        <div className="ai-icon">
+          <div className="ai-core"></div>
+          <div className="ai-ring"></div>
+          <div className="ai-particles">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
         {!isOpen && <span className="chat-badge">1</span>}
       </button>
 
@@ -757,9 +1042,15 @@ Keep responses natural, conversational, and helpful. You're not just an FAQ bot�
           )}
           {/* Header */}
           <div className="chatbot-header">
+            <div className="chatbot-avatar">
+              <div className="avatar-icon">
+                <div className="avatar-core"></div>
+                <div className="avatar-ring"></div>
+              </div>
+            </div>
             <div className="chatbot-title">
-              <h3>Chat with Assistant</h3>
-              <span className="status online">Online</span>
+              <h3>Dwiky's AI Assistant</h3>
+              <span className="status online">Always here to help</span>
             </div>
             <button
               className="chatbot-close"

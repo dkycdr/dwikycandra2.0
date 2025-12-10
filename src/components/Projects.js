@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
+import TiltedCard from './TiltedCard';
 import './projects.css';
 
 const projects = [
@@ -57,6 +59,7 @@ const projects = [
 export default function Projects() {
   const gridRef = useRef(null);
   const [selectedRole, setSelectedRole] = useState(null);
+  const [isClosing, setIsClosing] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -79,6 +82,28 @@ export default function Projects() {
     return () => observer.disconnect();
   }, []);
 
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (selectedRole) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedRole]);
+
+  // Handle modal close with animation
+  const handleCloseModal = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setSelectedRole(null);
+      setIsClosing(false);
+    }, 400); // Match animation duration
+  };
+
   return (
     <section className="projects" id="projects">
       <div className="container">
@@ -89,40 +114,66 @@ export default function Projects() {
 
         <div className="grid" ref={gridRef}>
           {projects.map(p => (
-            <div key={p.id} className="card">
-              <div className="card-inner">
-                <div className="card-front">
-                  <div className="card-content">
-                    <h3>{p.title}</h3>
-                    <p>{p.desc}</p>
-                    <div className="role-badge" onClick={() => setSelectedRole(p)}>
-                      {p.role}
+            <TiltedCard
+              key={p.id}
+              imageSrc=""
+              altText=""
+              captionText=""
+              containerHeight="100%"
+              containerWidth="100%"
+              imageHeight="100%"
+              imageWidth="100%"
+              rotateAmplitude={3}
+              scaleOnHover={1.008}
+              showMobileWarning={false}
+              showTooltip={false}
+              displayOverlayContent={true}
+              overlayContent={
+                <div className="card">
+                  <div className="card-inner">
+                    <div className="card-front">
+                      <div className="card-content">
+                        <h3>{p.title}</h3>
+                        <p>{p.desc}</p>
+                        <div 
+                          className="role-badge" 
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedRole(p);
+                          }}
+                          style={{ pointerEvents: 'auto', cursor: 'pointer' }}
+                        >
+                          {p.role}
+                        </div>
+                        <div className="tech-stack">
+                          {p.tech.map(tech => (
+                            <span key={tech} className="tech-tag">{tech}</span>
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                    <div className="tech-stack">
-                      {p.tech.map(tech => (
-                        <span key={tech} className="tech-tag">{tech}</span>
-                      ))}
+                    <div className="card-links">
+                      <a href={p.links.demo} className="card-link demo">Live Demo</a>
+                      <a href={p.links.code} className="card-link code">View Code</a>
                     </div>
                   </div>
                 </div>
-                <div className="card-links">
-                  <a href={p.links.demo} className="card-link demo">Live Demo</a>
-                  <a href={p.links.code} className="card-link code">View Code</a>
-                </div>
-              </div>
-              <div className="card-shine"></div>
-            </div>
+              }
+            />
           ))}
         </div>
       </div>
 
-      {/* Role Modal */}
-      {selectedRole && (
-        <div className="role-modal-overlay" onClick={() => setSelectedRole(null)}>
+      {/* Role Modal - Rendered via Portal to body */}
+      {selectedRole && createPortal(
+        <div 
+          className={`role-modal-overlay ${isClosing ? 'closing' : ''}`} 
+          onClick={handleCloseModal}
+        >
           <div className="role-modal" onClick={(e) => e.stopPropagation()}>
             <button
               className="modal-close"
-              onClick={() => setSelectedRole(null)}
+              onClick={handleCloseModal}
               aria-label="Close"
             >
               ✕
@@ -143,7 +194,8 @@ export default function Projects() {
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );
