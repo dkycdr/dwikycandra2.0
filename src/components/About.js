@@ -153,8 +153,9 @@ export default function About() {
                     <span className="skill-name">Next.js</span>
                     <span className="skill-percent">70%</span>
                   </div>
+                  <div className="skill-bar" data-percent="70"></div>
                 </div>
-                <div className="skill-bar" data-percent="70"></div>
+
 
                 <div className="skill-item">
                   <div className="skill-info">
