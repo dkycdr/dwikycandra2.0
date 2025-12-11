@@ -43,7 +43,7 @@ void mainImage(out vec4 o, vec2 C) {
   float i, d, z, T = iTime * uSpeed * uDirection;
   vec3 O, p, S;
   
-  for (vec2 r = iResolution.xy, Q; ++i < 60.; O += o.w/d*o.xyz) {
+  for (vec2 r = iResolution.xy, Q; ++i < 40.; O += o.w/d*o.xyz) {
     p = z*normalize(vec3(C-.5*r,r.y));
     
     p.z -= 4.;
@@ -109,7 +109,7 @@ export const Plasma = ({
       webgl: 2,
       alpha: true,
       antialias: false,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
+      dpr: 1 // Fixed to 1 for better performance
     });
     const gl = renderer.gl;
     const canvas = gl.canvas;
@@ -139,8 +139,14 @@ export const Plasma = ({
 
     const mesh = new Mesh(gl, { geometry, program });
 
+    let mouseThrottle = null;
     const handleMouseMove = e => {
       if (!mouseInteractive) return;
+      if (mouseThrottle) return;
+      mouseThrottle = setTimeout(() => {
+        mouseThrottle = null;
+      }, 16); // ~60fps throttle
+      
       const rect = containerRef.current.getBoundingClientRect();
       mousePos.current.x = e.clientX - rect.left;
       mousePos.current.y = e.clientY - rect.top;

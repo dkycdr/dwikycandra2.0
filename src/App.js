@@ -18,21 +18,25 @@ function App() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('in-view');
-          } else {
-            // keep it visible once seen? we'll remove so effect can repeat
-            entry.target.classList.remove('in-view');
           }
+          // Don't remove class - keep it visible once seen for better performance
         });
       },
-      { threshold: 0.25 }
+      { threshold: 0.15, rootMargin: '50px' } // Trigger earlier, less frequent checks
     );
     sections.forEach((s) => io.observe(s));
     return () => io.disconnect();
   }, []);
 
-  // 3D Mouse tracking for interactive elements
+  // 3D Mouse tracking for interactive elements (throttled)
   useEffect(() => {
+    let throttleTimer = null;
     const handleMouseMove = (e) => {
+      if (throttleTimer) return;
+      throttleTimer = setTimeout(() => {
+        throttleTimer = null;
+      }, 32); // ~30fps throttle for CSS variables
+      
       const mouseX = (e.clientX / window.innerWidth) * 30 - 15;
       const mouseY = (e.clientY / window.innerHeight) * 30 - 15;
       document.documentElement.style.setProperty('--mouse-x', `${mouseX}deg`);
@@ -47,10 +51,10 @@ function App() {
     <div className="App">
       <Plasma
         color="#9b59ff"
-        speed={0.6}
+        speed={0.5}
         direction="forward"
         scale={1.1}
-        opacity={0.3}
+        opacity={0.25}
         mouseInteractive={true}
       />
       <NavBar />
