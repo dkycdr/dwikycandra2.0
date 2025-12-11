@@ -1,8 +1,25 @@
-.site-nav{position:fixed;top:0;left:0;right:0;z-index:50;background:linear-gradient(90deg, rgba(10,6,20,0.92), rgba(10,6,20,0.7));backdrop-filter:blur(8px);border-bottom:1px solid rgba(155,89,255,0.06);padding:0.6rem 0 1rem 0;box-shadow:0 8px 32px rgba(155,89,255,0.15);overflow:visible;width:100vw;margin-left:calc(-50vw + 50%)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0.4rem 1rem;overflow:visible}
-.brand{display:flex;align-items:center}
-.brand-inner{position:relative;padding:0.4rem 0.8rem;border-radius:8px;overflow:hidden;cursor:default;display:flex;align-items:center;gap:0.2rem}
-.brand-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(155,89,255,0.12),rgba(106,13,173,0.08));border:1px solid rgba(155,89,255,0.08);border-radius:inherit;backdrop-filter:blur(8px)}
+.site-nav{position:fixed;top:1.5rem;left:50%;transform:translateX(-50%);z-index:50;width:auto;max-width:90vw}
+.nav-inner{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  padding:0.6rem 0.85rem;
+  background:rgba(10,6,20,0.85);
+  backdrop-filter:blur(20px) saturate(180%);
+  border-radius:50px;
+  border:1px solid rgba(155,89,255,0.15);
+  box-shadow:0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(155,89,255,0.1) inset, 0 0 40px rgba(155,89,255,0.1);
+  overflow:visible;
+  animation:floatNav 6s ease-in-out infinite;
+}
+
+@keyframes floatNav {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+.brand{display:flex;align-items:center;padding:0 0.5rem}
+.brand-inner{position:relative;padding:0.3rem 0.6rem;border-radius:20px;overflow:hidden;cursor:default;display:flex;align-items:center;gap:0.2rem}
+.brand-bg{position:absolute;inset:0;background:transparent;border:none;border-radius:inherit}
 
 /* Main brand text with glitch effect */
 .brand-text{position:relative;z-index:1}
@@ -67,26 +84,117 @@
 .brand-inner:hover .glitch-text::after { animation: glitchBottom 0.5s steps(2) infinite; }
 .brand-inner:hover .brand-bg { background: linear-gradient(135deg,rgba(155,89,255,0.18),rgba(106,13,173,0.12)); }
 .brand-inner:hover .glow { animation: pulse 1.5s ease-in-out infinite; }
-.site-nav nav a{color:var(--muted);margin-left:1rem;text-decoration:none;font-weight:700;padding:0.5rem 0.85rem;border-radius:8px;display:inline-block;font-family:'Poppins',Inter,system-ui;font-size:1rem;transition:color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), background 0.4s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease}
-.site-nav nav a:hover{color:#fff;background:rgba(155,89,255,0.06);transform:translateY(-2px) scale(1.02)}
-.site-nav nav a.active{color:#fff;background:transparent;filter:drop-shadow(0 2px 8px rgba(155,89,255,0.6));transform:translateY(-1px) scale(1.05);font-weight:800;text-shadow:0 0 20px rgba(155,89,255,0.8), 0 0 40px rgba(155,89,255,0.4);animation:activeGlow 2s ease-in-out infinite}
+.site-nav nav a{
+  color:rgba(255,255,255,0.7);
+  margin:0;
+  text-decoration:none;
+  font-weight:600;
+  padding:0.55rem 1.1rem;
+  border-radius:30px;
+  display:inline-block;
+  font-family:'Poppins',Inter,system-ui;
+  font-size:0.92rem;
+  transition:color 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), text-shadow 0.3s ease;
+  transform:translateZ(0);
+  will-change:transform;
+  text-align:center;
+}
+.site-nav nav a:hover{
+  color:#fff;
+  transform:translateZ(0) scale(1.05) translateY(-1px);
+  text-shadow:0 0 12px rgba(155,89,255,0.5), 0 2px 6px rgba(0,0,0,0.2);
+}
+.site-nav nav a.active{
+  color:#fff;
+  font-weight:700;
+  text-shadow:0 0 10px rgba(155,89,255,0.5);
+}
 
 @keyframes activeGlow {
   0%, 100% { text-shadow: 0 0 20px rgba(155,89,255,0.8), 0 0 40px rgba(155,89,255,0.4) }
   50% { text-shadow: 0 0 25px rgba(155,89,255,1), 0 0 50px rgba(155,89,255,0.6), 0 0 70px rgba(155,89,255,0.3) }
 }
-.site-nav nav a:focus{outline:2px solid rgba(155,89,255,0.18);outline-offset:2px}
+.site-nav nav a:focus{outline:none}
 
-/* glass highlight - Active state (follows scroll) - LIQUID EFFECT */
-.site-nav nav{position:relative;display:flex;align-items:center;overflow:visible}
-.nav-highlight-active{position:absolute;top:2px;left:0;height:44px;border-radius:22px;background:linear-gradient(135deg,rgba(155,89,255,0.35),rgba(106,13,173,0.35),rgba(155,89,255,0.25));background-size:200% 200%;box-shadow:0 6px 25px rgba(155,89,255,0.6), 0 0 50px rgba(155,89,255,0.35), inset 0 1px 0 rgba(255,255,255,0.2);pointer-events:none;transition:left 0.7s cubic-bezier(0.16, 1, 0.3, 1), width 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, border-radius 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);transform:scaleX(1) scaleY(1) translateY(0);opacity:0;z-index:0;will-change:left, width, opacity, border-radius, transform;backdrop-filter:blur(15px) saturate(180%);border:1.5px solid rgba(155,89,255,0.5);animation:liquidMorphActive 6s ease-in-out infinite}
-.nav-highlight-active::before{content:'';position:absolute;inset:-6px;border-radius:28px;background:linear-gradient(135deg,rgba(155,89,255,0.6),rgba(106,13,173,0.6));filter:blur(16px);opacity:0.7;z-index:-1;animation:liquidGlowActive 5s ease-in-out infinite}
-.nav-highlight-active::after{content:'';position:absolute;top:0;left:0;right:0;height:60%;background:linear-gradient(180deg,rgba(255,255,255,0.25),transparent);border-radius:22px 22px 0 0;mix-blend-mode:overlay;animation:liquidShine 3s ease-in-out infinite}
+/* Floating pill indicator - Active state with fluid morphing */
+.site-nav nav{position:relative;display:flex;align-items:center;gap:0.8rem;overflow:visible}
+.nav-highlight-active{
+  position:absolute;
+  top:0;
+  left:0;
+  height:100%;
+  border-radius:30px;
+  background:linear-gradient(135deg,rgba(155,89,255,0.3),rgba(106,13,173,0.3));
+  box-shadow:0 4px 16px rgba(155,89,255,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
+  pointer-events:none;
+  transition:left 0.6s cubic-bezier(0.23, 1, 0.32, 1), width 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s ease;
+  transform:translateZ(0);
+  opacity:0;
+  z-index:0;
+  will-change:transform;
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(155,89,255,0.4);
+  animation:pillPulse 3s ease-in-out infinite;
+}
+.nav-highlight-active::before{
+  content:'';
+  position:absolute;
+  inset:-5px;
+  border-radius:35px;
+  background:linear-gradient(135deg,rgba(155,89,255,0.5),rgba(106,13,173,0.5));
+  filter:blur(14px);
+  opacity:0.6;
+  z-index:-1;
+  animation:glowPulse 3s ease-in-out infinite;
+}
+.nav-highlight-active::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:30px;
+  background:linear-gradient(180deg,rgba(255,255,255,0.25),transparent);
+  opacity:0.8;
+}
 
-/* glass highlight - Hover state (follows mouse) - LIQUID EFFECT */
-.nav-highlight-hover{position:absolute;top:2px;left:0;height:44px;border-radius:20px;background:linear-gradient(135deg,rgba(155,89,255,0.2),rgba(106,13,173,0.2));box-shadow:0 4px 20px rgba(155,89,255,0.45), inset 0 1px 0 rgba(255,255,255,0.18);pointer-events:none;transition:left 0.55s cubic-bezier(0.16, 1, 0.3, 1), width 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, border-radius 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);transform:scaleX(1) scaleY(1) translateY(0);opacity:0;z-index:1;will-change:left, width, opacity, border-radius, transform;backdrop-filter:blur(12px) saturate(160%);border:1.2px solid rgba(155,89,255,0.35);animation:liquidMorphHover 4s ease-in-out infinite}
-.nav-highlight-hover::before{content:'';position:absolute;inset:-3px;border-radius:23px;background:linear-gradient(135deg,rgba(155,89,255,0.3),rgba(106,13,173,0.3));filter:blur(10px);opacity:0.5;z-index:-1}
-.nav-highlight-hover::after{content:'';position:absolute;top:0;left:0;right:0;height:60%;background:linear-gradient(180deg,rgba(255,255,255,0.2),transparent);border-radius:20px 20px 0 0;mix-blend-mode:overlay}
+@keyframes pillPulse {
+  0%, 100% { transform: translateZ(0) scale(1); }
+  50% { transform: translateZ(0) scale(1.02); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.6; filter: blur(14px); }
+  50% { opacity: 0.8; filter: blur(16px); }
+}
+
+
+
+/* Hover pill indicator with glow effect */
+.nav-highlight-hover{
+  position:absolute;
+  top:1px;
+  left:0;
+  height:calc(100% - 2px);
+  border-radius:29px;
+  background:linear-gradient(135deg,rgba(155,89,255,0.15),rgba(106,13,173,0.15));
+  pointer-events:none;
+  transition:left 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
+  transform:translateZ(0);
+  opacity:0;
+  z-index:1;
+  will-change:transform;
+  box-shadow:0 3px 10px rgba(155,89,255,0.25), inset 0 1px 0 rgba(255,255,255,0.15);
+  backdrop-filter:blur(6px);
+}
+.nav-highlight-hover::before{
+  content:'';
+  position:absolute;
+  inset:-2px;
+  border-radius:31px;
+  background:linear-gradient(135deg,rgba(155,89,255,0.25),rgba(106,13,173,0.25));
+  filter:blur(8px);
+  opacity:0.6;
+  z-index:-1;
+}
 
 @keyframes liquidMorphActive {
   0%, 100% { 

@@ -4,8 +4,8 @@ import './navbar.css';
 export default function NavBar(){
   const [active, setActive] = useState('hero');
   const navRef = useRef(null);
-  const [hl, setHl] = useState({left:0,width:0,opacity:0});
   const [activeHl, setActiveHl] = useState({left:0,width:0,opacity:0});
+  const isScrollingRef = useRef(false);
 
   useEffect(() => {
     const sections = Array.from(document.querySelectorAll('section[id]'));
@@ -14,7 +14,8 @@ export default function NavBar(){
     const obs = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
+          // Only update if not programmatically scrolling
+          if (entry.isIntersecting && !isScrollingRef.current) {
             setActive(entry.target.id);
           }
         });
@@ -46,45 +47,43 @@ export default function NavBar(){
   useEffect(() => {
     const nav = navRef.current;
     if (!nav) return;
+    const hoverEl = nav.querySelector('.nav-highlight-hover');
+    if (!hoverEl) return;
+    
     let leaveTimer = null;
-    let isHovering = false;
+    const links = nav.querySelectorAll('a');
 
-    function onMouseEnter(){
-      if (!isHovering) {
-        // Start hover from active position
-        setHl({left: activeHl.left, width: activeHl.width, opacity:0});
-        isHovering = true;
-      }
-    }
-
-    function onMouseMove(e){
-      const target = e.target.closest('a');
-      if (!target || !nav.contains(target)) return;
+    function onLinkEnter(e){
+      const target = e.currentTarget;
       const navRect = nav.getBoundingClientRect();
       const r = target.getBoundingClientRect();
-      setHl({left: r.left - navRect.left + nav.scrollLeft, width: r.width, opacity:1});
+      const left = r.left - navRect.left + nav.scrollLeft;
+      const width = r.width;
+      
+      // Direct DOM manipulation - no React re-render
+      hoverEl.style.left = `${left}px`;
+      hoverEl.style.width = `${width}px`;
+      hoverEl.style.opacity = '1';
+      
       if (leaveTimer) { clearTimeout(leaveTimer); leaveTimer = null; }
     }
 
-    function onLeave(){
-      isHovering = false;
+    function onNavLeave(){
       leaveTimer = setTimeout(()=>{
-        setHl({left: activeHl.left, width: activeHl.width, opacity:0});
+        hoverEl.style.opacity = '0';
       }, 150);
     }
 
-    nav.addEventListener('mouseenter', onMouseEnter);
-    nav.addEventListener('mousemove', onMouseMove);
-    nav.addEventListener('mouseleave', onLeave);
+    links.forEach(link => link.addEventListener('mouseenter', onLinkEnter));
+    nav.addEventListener('mouseleave', onNavLeave);
+    
     return () => {
-      nav.removeEventListener('mouseenter', onMouseEnter);
-      nav.removeEventListener('mousemove', onMouseMove);
-      nav.removeEventListener('mouseleave', onLeave);
+      links.forEach(link => link.removeEventListener('mouseenter', onLinkEnter));
+      nav.removeEventListener('mouseleave', onNavLeave);
       if (leaveTimer) clearTimeout(leaveTimer);
     }
-  }, [activeHl]);
+  }, []);
 
-  // INSTANT smooth scroll - pure DOM, zero delay
   const handleNavClick = useCallback((e) => {
     const href = e.currentTarget.getAttribute('href');
     if (!href) return;
@@ -92,24 +91,30 @@ export default function NavBar(){
     e.preventDefault();
     e.stopPropagation();
     
-    const targetId = href.substring(1); // Remove #
+    const targetId = href.substring(1);
     const targetElement = document.getElementById(targetId);
     
     if (!targetElement) return;
     
-    // Calculate position IMMEDIATELY
+    // Lock active state during programmatic scroll
+    isScrollingRef.current = true;
+    setActive(targetId);
+    
     const navbarHeight = 80;
     const targetRect = targetElement.getBoundingClientRect();
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const targetPosition = targetRect.top + scrollTop - navbarHeight - 20;
     
-    // INSTANT scroll - no delay
     window.scrollTo({
       top: targetPosition,
       behavior: 'smooth'
     });
     
-    // Update URL without triggering navigation
+    // Unlock after smooth scroll completes
+    setTimeout(() => {
+      isScrollingRef.current = false;
+    }, 800);
+    
     window.history.replaceState(null, '', href);
   }, []);
 
@@ -131,7 +136,7 @@ export default function NavBar(){
         </div>
         <nav ref={navRef}>
           <span className="nav-highlight-active" style={{left: activeHl.left, width: activeHl.width, opacity: activeHl.opacity}} />
-          <span className="nav-highlight-hover" style={{left: hl.left, width: hl.width, opacity: hl.opacity}} />
+          <span className="nav-highlight-hover" style={{left: 0, width: 0, opacity: 0}} />
           <a className={active==='about' ? 'active': ''} href="#about" onClick={handleNavClick}>About</a>
           <a className={active==='projects' ? 'active': ''} href="#projects" onClick={handleNavClick}>Projects</a>
           <a className={active==='team' ? 'active': ''} href="#team" onClick={handleNavClick}>Team</a>
