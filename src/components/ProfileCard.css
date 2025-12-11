@@ -35,6 +35,7 @@
   transform: translate3d(0, 0, 0.1px);
   position: relative;
   touch-action: none;
+  will-change: transform;
 }
 
 .pc-behind {
@@ -47,7 +48,8 @@
     var(--behind-glow-color) 0%,
     transparent var(--behind-glow-size)
   );
-  filter: blur(50px) saturate(0.8);
+  filter: blur(40px) saturate(0.8);
+  will-change: background;
   opacity: calc(0.5 * var(--card-opacity));
   transition: opacity 200ms ease;
 }
@@ -88,6 +90,7 @@
 .pc-card-shell {
   position: relative;
   z-index: 1;
+  will-change: transform;
 }
 
 .pc-card * {
@@ -116,6 +119,7 @@
   animation: holo-bg 18s linear infinite;
   animation-play-state: running;
   mix-blend-mode: color-dodge;
+  will-change: mask-position, filter;
 }
 
 .pc-shine,

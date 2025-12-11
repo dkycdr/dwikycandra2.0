@@ -84,7 +84,7 @@ export default function NavBar(){
     }
   }, [activeHl]);
 
-  // Smooth scroll handler with custom easing
+  // Ultra smooth scroll handler with optimized easing
   const handleNavClick = useCallback((e) => {
     e.preventDefault();
     const href = e.currentTarget.getAttribute('href');
@@ -100,23 +100,27 @@ export default function NavBar(){
     const targetPosition = targetElement.offsetTop - navbarHeight - 20;
     const startPosition = window.pageYOffset;
     const distance = targetPosition - startPosition;
-    const duration = 800; // ms - smooth but not too slow
+    
+    // Dynamic duration based on distance (faster for short, slower for long)
+    const duration = Math.min(Math.max(Math.abs(distance) * 0.5, 400), 1000);
     let startTime = null;
     
-    // Easing function for smooth acceleration/deceleration
-    const easeInOutCubic = (t) => {
-      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    // Smoother easing function - easeInOutQuart for buttery smooth motion
+    const easeInOutQuart = (t) => {
+      return t < 0.5 
+        ? 8 * t * t * t * t 
+        : 1 - Math.pow(-2 * t + 2, 4) / 2;
     };
     
     const animation = (currentTime) => {
       if (startTime === null) startTime = currentTime;
       const timeElapsed = currentTime - startTime;
       const progress = Math.min(timeElapsed / duration, 1);
-      const ease = easeInOutCubic(progress);
+      const ease = easeInOutQuart(progress);
       
       window.scrollTo(0, startPosition + distance * ease);
       
-      if (timeElapsed < duration) {
+      if (progress < 1) {
         requestAnimationFrame(animation);
       } else {
         // Update URL after scroll completes
@@ -124,6 +128,7 @@ export default function NavBar(){
       }
     };
     
+    // Start immediately - no delay
     requestAnimationFrame(animation);
   }, []);
 
