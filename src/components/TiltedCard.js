@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import './TiltedCard.css';
 
@@ -8,7 +8,7 @@ const springValues = {
   mass: 1.5
 };
 
-export default function TiltedCard({
+function TiltedCard({
   imageSrc,
   altText = 'Tilted card image',
   captionText = '',
@@ -39,7 +39,7 @@ export default function TiltedCard({
 
   const [lastY, setLastY] = useState(0);
 
-  function handleMouse(e) {
+  const handleMouse = useCallback((e) => {
     if (!ref.current) return;
 
     const rect = ref.current.getBoundingClientRect();
@@ -58,20 +58,20 @@ export default function TiltedCard({
     const velocityY = offsetY - lastY;
     rotateFigcaption.set(-velocityY * 0.6);
     setLastY(offsetY);
-  }
+  }, [rotateAmplitude, rotateX, rotateY, x, y, rotateFigcaption, lastY]);
 
-  function handleMouseEnter() {
+  const handleMouseEnter = useCallback(() => {
     scale.set(scaleOnHover);
     opacity.set(1);
-  }
+  }, [scale, scaleOnHover, opacity]);
 
-  function handleMouseLeave() {
+  const handleMouseLeave = useCallback(() => {
     opacity.set(0);
     scale.set(1);
     rotateX.set(0);
     rotateY.set(0);
     rotateFigcaption.set(0);
-  }
+  }, [opacity, scale, rotateX, rotateY, rotateFigcaption]);
 
   return (
     <figure
@@ -134,3 +134,5 @@ export default function TiltedCard({
     </figure>
   );
 }
+
+export default React.memo(TiltedCard);

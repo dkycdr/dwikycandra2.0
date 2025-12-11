@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import './App.css';
 import NavBar from './components/NavBar';
 import Hero from './components/Hero';
@@ -6,9 +6,11 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Team from './components/Team';
 import Contact from './components/Contact';
-import ChatBot from './components/ChatBot';
 import Plasma from './components/Plasma';
 import { FiGithub, FiLinkedin, FiInstagram } from 'react-icons/fi';
+
+// Lazy load ChatBot - only loads when needed
+const ChatBot = lazy(() => import('./components/ChatBot'));
 
 function App() {
   useEffect(() => {
@@ -65,7 +67,9 @@ function App() {
         <Team />
         <Contact />
       </main>
-      <ChatBot />
+      <Suspense fallback={null}>
+        <ChatBot />
+      </Suspense>
       <footer className="site-footer">
         <div className="container">
           <div className="footer-content">
