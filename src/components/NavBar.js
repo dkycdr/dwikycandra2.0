@@ -84,63 +84,33 @@ export default function NavBar(){
     }
   }, [activeHl]);
 
-  // Ultra smooth scroll handler - INSTANT START, NO DELAY
+  // INSTANT smooth scroll - pure DOM, zero delay
   const handleNavClick = useCallback((e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    
     const href = e.currentTarget.getAttribute('href');
     if (!href) return;
     
-    const targetId = href.replace('#', '');
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const targetId = href.substring(1); // Remove #
     const targetElement = document.getElementById(targetId);
     
     if (!targetElement) return;
     
-    // Get navbar height for offset
-    const navbarHeight = navRef.current?.offsetHeight || 80;
-    const targetPosition = targetElement.offsetTop - navbarHeight - 20;
-    const startPosition = window.pageYOffset;
-    const distance = targetPosition - startPosition;
+    // Calculate position IMMEDIATELY
+    const navbarHeight = 80;
+    const targetRect = targetElement.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const targetPosition = targetRect.top + scrollTop - navbarHeight - 20;
     
-    // If very close, just jump
-    if (Math.abs(distance) < 10) {
-      window.scrollTo(0, targetPosition);
-      window.history.pushState(null, '', href);
-      return;
-    }
+    // INSTANT scroll - no delay
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    });
     
-    // Dynamic duration based on distance
-    const duration = Math.min(Math.max(Math.abs(distance) * 0.4, 350), 900);
-    const startTime = performance.now();
-    
-    // Smoother easing - easeInOutQuart
-    const easeInOutQuart = (t) => {
-      return t < 0.5 
-        ? 8 * t * t * t * t 
-        : 1 - Math.pow(-2 * t + 2, 4) / 2;
-    };
-    
-    // IMMEDIATE first scroll - no waiting for RAF
-    window.scrollTo(0, startPosition + distance * 0.02);
-    
-    const animation = (currentTime) => {
-      const timeElapsed = currentTime - startTime;
-      const progress = Math.min(timeElapsed / duration, 1);
-      const ease = easeInOutQuart(progress);
-      
-      window.scrollTo(0, startPosition + distance * ease);
-      
-      if (progress < 1) {
-        requestAnimationFrame(animation);
-      } else {
-        // Ensure we hit exact target
-        window.scrollTo(0, targetPosition);
-        window.history.pushState(null, '', href);
-      }
-    };
-    
-    requestAnimationFrame(animation);
+    // Update URL without triggering navigation
+    window.history.replaceState(null, '', href);
   }, []);
 
   return (
