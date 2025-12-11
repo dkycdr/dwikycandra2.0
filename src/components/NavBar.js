@@ -84,9 +84,11 @@ export default function NavBar(){
     }
   }, [activeHl]);
 
-  // Ultra smooth scroll handler with optimized easing
+  // Ultra smooth scroll handler - INSTANT START, NO DELAY
   const handleNavClick = useCallback((e) => {
     e.preventDefault();
+    e.stopPropagation();
+    
     const href = e.currentTarget.getAttribute('href');
     if (!href) return;
     
@@ -101,19 +103,28 @@ export default function NavBar(){
     const startPosition = window.pageYOffset;
     const distance = targetPosition - startPosition;
     
-    // Dynamic duration based on distance (faster for short, slower for long)
-    const duration = Math.min(Math.max(Math.abs(distance) * 0.5, 400), 1000);
-    let startTime = null;
+    // If very close, just jump
+    if (Math.abs(distance) < 10) {
+      window.scrollTo(0, targetPosition);
+      window.history.pushState(null, '', href);
+      return;
+    }
     
-    // Smoother easing function - easeInOutQuart for buttery smooth motion
+    // Dynamic duration based on distance
+    const duration = Math.min(Math.max(Math.abs(distance) * 0.4, 350), 900);
+    const startTime = performance.now();
+    
+    // Smoother easing - easeInOutQuart
     const easeInOutQuart = (t) => {
       return t < 0.5 
         ? 8 * t * t * t * t 
         : 1 - Math.pow(-2 * t + 2, 4) / 2;
     };
     
+    // IMMEDIATE first scroll - no waiting for RAF
+    window.scrollTo(0, startPosition + distance * 0.02);
+    
     const animation = (currentTime) => {
-      if (startTime === null) startTime = currentTime;
       const timeElapsed = currentTime - startTime;
       const progress = Math.min(timeElapsed / duration, 1);
       const ease = easeInOutQuart(progress);
@@ -123,12 +134,12 @@ export default function NavBar(){
       if (progress < 1) {
         requestAnimationFrame(animation);
       } else {
-        // Update URL after scroll completes
+        // Ensure we hit exact target
+        window.scrollTo(0, targetPosition);
         window.history.pushState(null, '', href);
       }
     };
     
-    // Start immediately - no delay
     requestAnimationFrame(animation);
   }, []);
 
