@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import './navbar.css';
 
 export default function NavBar(){
@@ -84,6 +84,49 @@ export default function NavBar(){
     }
   }, [activeHl]);
 
+  // Smooth scroll handler with custom easing
+  const handleNavClick = useCallback((e) => {
+    e.preventDefault();
+    const href = e.currentTarget.getAttribute('href');
+    if (!href) return;
+    
+    const targetId = href.replace('#', '');
+    const targetElement = document.getElementById(targetId);
+    
+    if (!targetElement) return;
+    
+    // Get navbar height for offset
+    const navbarHeight = navRef.current?.offsetHeight || 80;
+    const targetPosition = targetElement.offsetTop - navbarHeight - 20;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    const duration = 800; // ms - smooth but not too slow
+    let startTime = null;
+    
+    // Easing function for smooth acceleration/deceleration
+    const easeInOutCubic = (t) => {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    };
+    
+    const animation = (currentTime) => {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const ease = easeInOutCubic(progress);
+      
+      window.scrollTo(0, startPosition + distance * ease);
+      
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animation);
+      } else {
+        // Update URL after scroll completes
+        window.history.pushState(null, '', href);
+      }
+    };
+    
+    requestAnimationFrame(animation);
+  }, []);
+
   return (
     <header className="site-nav">
       <div className="container nav-inner">
@@ -103,10 +146,10 @@ export default function NavBar(){
         <nav ref={navRef}>
           <span className="nav-highlight-active" style={{left: activeHl.left, width: activeHl.width, opacity: activeHl.opacity}} />
           <span className="nav-highlight-hover" style={{left: hl.left, width: hl.width, opacity: hl.opacity}} />
-          <a className={active==='about' ? 'active': ''} href="#about">About</a>
-          <a className={active==='projects' ? 'active': ''} href="#projects">Projects</a>
-          <a className={active==='team' ? 'active': ''} href="#team">Team</a>
-          <a className={active==='contact' ? 'active': ''} href="#contact">Contact</a>
+          <a className={active==='about' ? 'active': ''} href="#about" onClick={handleNavClick}>About</a>
+          <a className={active==='projects' ? 'active': ''} href="#projects" onClick={handleNavClick}>Projects</a>
+          <a className={active==='team' ? 'active': ''} href="#team" onClick={handleNavClick}>Team</a>
+          <a className={active==='contact' ? 'active': ''} href="#contact" onClick={handleNavClick}>Contact</a>
         </nav>
       </div>
     </header>
