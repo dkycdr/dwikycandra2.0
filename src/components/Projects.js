@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import TiltedCard from './TiltedCard';
+import { CardContainer, CardBody, CardItem } from './ui/3d-card';
 import './projects.css';
 
 const projects = [
@@ -120,44 +120,37 @@ export default function Projects() {
         <div className="grid" ref={gridRef}>
           {projects.map(p => (
             <div key={p.id} className="project-wrapper" data-size={p.size}>
-              <TiltedCard
-                imageSrc=""
-                altText=""
-                captionText=""
-                containerHeight="100%"
-                containerWidth="100%"
-                imageHeight="100%"
-                imageWidth="100%"
-                rotateAmplitude={3}
-                scaleOnHover={1.008}
-                showMobileWarning={false}
-                showTooltip={false}
-                displayOverlayContent={true}
-                overlayContent={
-                  <div className="card">
-                    <div className="card-inner">
+              <CardContainer containerClassName="h-full w-full p-0">
+                <CardBody className="h-full w-full">
+                  <div className="card h-full w-full">
+                    <div className="card-inner h-full">
                       <div className="card-front">
                         <div className="card-content">
-                          <h3>{p.title}</h3>
-                          <p>{p.desc}</p>
-                          <div
+                          <CardItem translateZ="100" as="h3">
+                            {p.title}
+                          </CardItem>
+                          <CardItem translateZ="60" as="p">
+                            {p.desc}
+                          </CardItem>
+                          <CardItem 
+                            translateZ="150"
+                            as="div"
                             className="role-badge"
                             onClick={(e) => {
                               e.stopPropagation();
                               setSelectedRole(p);
                             }}
-                            style={{ pointerEvents: 'auto', cursor: 'pointer' }}
                           >
                             {p.role}
-                          </div>
-                          <div className="tech-stack">
+                          </CardItem>
+                          <CardItem translateZ="50" className="tech-stack">
                             {p.tech.map(tech => (
                               <span key={tech} className="tech-tag">{tech}</span>
                             ))}
-                          </div>
+                          </CardItem>
                         </div>
                       </div>
-                      <div className="card-links">
+                      <CardItem translateZ="180" className="card-links">
                         <a href={p.links.demo} className="card-link demo" target="_blank" rel="noopener noreferrer">
                           <svg className="link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -173,11 +166,11 @@ export default function Projects() {
                           </svg>
                           <span>View Code</span>
                         </a>
-                      </div>
+                      </CardItem>
                     </div>
                   </div>
-                }
-              />
+                </CardBody>
+              </CardContainer>
             </div>
           ))}
         </div>
