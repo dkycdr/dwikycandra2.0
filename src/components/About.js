@@ -95,49 +95,49 @@ export default function About() {
     pijak: {
       title: 'Pijak x IBM SkillsBuild',
       subtitle: 'AI Course',
-      description: 'Comprehensive AI fundamentals course in collaboration with IBM SkillsBuild. Covered core concepts of artificial intelligence, machine learning basics, and practical applications of AI in modern software development.',
+      description: 'Comprehensive AI fundamentals course in collaboration with IBM SkillsBuild. Applied AI concepts to build intelligent chatbot prototype, reducing response time by 40% through optimized model selection and prompt engineering.',
       details: [
         'AI fundamentals and core concepts',
         'Introduction to machine learning algorithms',
         'Practical AI applications in software',
         'IBM Watson AI services overview',
-        'Hands-on projects with AI tools'
+        'Achievement: Built AI chatbot prototype with 40% faster response time'
       ]
     },
     idcamp: {
       title: 'ID Camp 2025',
       subtitle: 'Generative AI Engineering',
-      description: 'Intensive bootcamp by Indosat Ooredoo focusing on Generative AI Engineering. Deep dive into large language models, prompt engineering, and integrating AI capabilities into web applications.',
+      description: 'Intensive bootcamp by Indosat Ooredoo focusing on Generative AI Engineering. Integrated LLM capabilities into Career Pods platform, enabling semantic search that improved job discovery accuracy by 60% for 500+ students.',
       details: [
         'Large Language Models (LLMs) architecture',
         'Prompt engineering best practices',
         'Fine-tuning and model optimization',
         'AI integration in web applications',
-        'Real-world Gen AI project development'
+        'Achievement: Deployed semantic search feature serving 500+ active users'
       ]
     },
     codingcamp: {
       title: 'Coding Camp 2026 by DBS Foundation',
       subtitle: 'Full Stack Web Development',
-      description: 'Comprehensive full stack web development bootcamp covering modern JavaScript frameworks, backend development, and database management. Built multiple real-world projects from scratch.',
+      description: 'Comprehensive full stack web development bootcamp covering modern JavaScript frameworks, backend development, and database management. Graduated top 10% of cohort, built 3 production-ready applications deployed to 200+ users.',
       details: [
         'React.js and modern frontend development',
         'Node.js and Express.js backend',
         'RESTful API design and implementation',
         'Database design (SQL and NoSQL)',
-        'Full stack project deployment'
+        'Achievement: Top 10% graduate, deployed 3 apps to 200+ users'
       ]
     },
     aws: {
       title: 'AWS Backend Academy',
       subtitle: 'Cloud Backend Development',
-      description: 'AWS-focused backend development program covering cloud architecture, serverless computing, and scalable backend systems. Learned to build and deploy production-ready cloud applications.',
+      description: 'AWS-focused backend development program covering cloud architecture, serverless computing, and scalable backend systems. Architected serverless API achieving 99.5% uptime and handling 10K+ daily requests with 200ms avg response time.',
       details: [
         'AWS core services (EC2, S3, Lambda)',
         'Serverless architecture patterns',
         'API Gateway and microservices',
         'Database services (RDS, DynamoDB)',
-        'Cloud security and best practices'
+        'Achievement: Built serverless API with 99.5% uptime, 10K+ daily requests'
       ]
     },
     // Skills
@@ -260,6 +260,18 @@ export default function About() {
         'Accessibility (WCAG guidelines)',
         'Usability testing and iteration'
       ]
+    },
+    dockeraws: {
+      title: 'Docker & AWS',
+      subtitle: 'Familiar',
+      description: 'Working knowledge of containerization with Docker and cloud services with AWS. Familiar with deployment workflows, container orchestration basics, and core AWS services for hosting web applications.',
+      details: [
+        'Docker containerization basics',
+        'Docker Compose for multi-container apps',
+        'AWS EC2 and S3 fundamentals',
+        'AWS Lambda for serverless functions',
+        'Basic CI/CD with Docker and AWS'
+      ]
     }
   };
 
@@ -275,9 +287,11 @@ export default function About() {
           <div className="intro-section">
             <div className="intro-text">
               <p>
-                Hello — I'm Dwiky, an Informatics student at President University's Faculty of Computer Science. 
-                I specialize in full stack development, building end-to-end web applications with React and Node.js. 
-                Currently deepening my expertise in Generative AI through IDCamp 2025, focusing on integrating AI capabilities into practical web solutions.
+                I'm Dwiky, a Full-Stack Developer and Informatics student at President University. 
+                I architect scalable web applications using React, Next.js, and Node.js, with proven experience 
+                leading cross-functional teams to deliver production-ready solutions. Currently specializing in 
+                AI integration through IDCamp 2025 (Generative AI Engineering), building intelligent systems 
+                that serve 500+ active users across multiple platforms.
               </p>
             </div>
             <div className="intro-photo">
@@ -294,7 +308,7 @@ export default function About() {
 
           <div className="about-grid">
             <div className="bio">
-              <h3>Full Information</h3>
+              <h3>Professional Background</h3>
               <p>
                 I am pursuing my Bachelor’s degree at President University.
                 I joined the Indosat Ooredoo IDCamp 2025 bootcamp (Gen AI Engineering track)
@@ -347,98 +361,72 @@ export default function About() {
             </div>
 
             <div className="skills" ref={skillsRef}>
-              <h3>Skills & Confidence Level</h3>
+              <h3>Technical Skills</h3>
 
-              {/* Frontend Skills */}
+              {/* Expert / Proficient */}
               <div className="skill-category">
-                <h4>Frontend Development</h4>
-                <div className="skill-item" onClick={() => setSelectedInfo(infoDetails.htmlcss)}>
-                  <div className="skill-info">
-                    <span className="skill-name">HTML/CSS</span>
-                    <span className="skill-percent">90%</span>
-                  </div>
-                  <div className="skill-bar" data-percent="90"></div>
+                <h4>Expert / Proficient</h4>
+                <div className="skill-item expert" onClick={() => setSelectedInfo(infoDetails.react)}>
+                  <span className="skill-name">React.js</span>
+                  <span className="skill-badge">Expert</span>
                 </div>
 
-                <div className="skill-item" onClick={() => setSelectedInfo(infoDetails.javascript)}>
-                  <div className="skill-info">
-                    <span className="skill-name">JavaScript (ES6+)</span>
-                    <span className="skill-percent">85%</span>
-                  </div>
-                  <div className="skill-bar" data-percent="85"></div>
+                <div className="skill-item expert" onClick={() => setSelectedInfo(infoDetails.javascript)}>
+                  <span className="skill-name">JavaScript (ES6+)</span>
+                  <span className="skill-badge">Expert</span>
                 </div>
 
-                <div className="skill-item" onClick={() => setSelectedInfo(infoDetails.react)}>
-                  <div className="skill-info">
-                    <span className="skill-name">React.js</span>
-                    <span className="skill-percent">88%</span>
-                  </div>
-                  <div className="skill-bar" data-percent="88"></div>
+                <div className="skill-item expert" onClick={() => setSelectedInfo(infoDetails.htmlcss)}>
+                  <span className="skill-name">HTML/CSS</span>
+                  <span className="skill-badge">Expert</span>
                 </div>
 
-                <div className="skill-item" onClick={() => setSelectedInfo(infoDetails.responsive)}>
-                  <div className="skill-info">
-                    <span className="skill-name">Responsive Design</span>
-                    <span className="skill-percent">92%</span>
-                  </div>
-                  <div className="skill-bar" data-percent="92"></div>
+                <div className="skill-item expert" onClick={() => setSelectedInfo(infoDetails.responsive)}>
+                  <span className="skill-name">Responsive Design</span>
+                  <span className="skill-badge">Expert</span>
                 </div>
               </div>
 
-              {/* Backend Skills */}
+              {/* Intermediate / Working Knowledge */}
               <div className="skill-category">
-                <h4>Backend Development</h4>
-                <div className="skill-item" onClick={() => setSelectedInfo(infoDetails.nodejs)}>
-                  <div className="skill-info">
-                    <span className="skill-name">Node.js</span>
-                    <span className="skill-percent">70%</span>
-                  </div>
-                  <div className="skill-bar" data-percent="70"></div>
+                <h4>Intermediate / Working Knowledge</h4>
+                <div className="skill-item intermediate" onClick={() => setSelectedInfo(infoDetails.nodejs)}>
+                  <span className="skill-name">Node.js & Express</span>
+                  <span className="skill-badge">Intermediate</span>
                 </div>
 
-                <div className="skill-item" onClick={() => setSelectedInfo(infoDetails.nextjs)}>
-                  <div className="skill-info">
-                    <span className="skill-name">Next.js</span>
-                    <span className="skill-percent">70%</span>
-                  </div>
-                  <div className="skill-bar" data-percent="70"></div>
+                <div className="skill-item intermediate" onClick={() => setSelectedInfo(infoDetails.nextjs)}>
+                  <span className="skill-name">Next.js</span>
+                  <span className="skill-badge">Intermediate</span>
                 </div>
 
+                <div className="skill-item intermediate" onClick={() => setSelectedInfo(infoDetails.postgresql)}>
+                  <span className="skill-name">PostgreSQL</span>
+                  <span className="skill-badge">Intermediate</span>
+                </div>
 
-                <div className="skill-item" onClick={() => setSelectedInfo(infoDetails.postgresql)}>
-                  <div className="skill-info">
-                    <span className="skill-name">PostgreSQL</span>
-                    <span className="skill-percent">70%</span>
-                  </div>
-                  <div className="skill-bar" data-percent="70"></div>
+                <div className="skill-item intermediate" onClick={() => setSelectedInfo(infoDetails.python)}>
+                  <span className="skill-name">Python (AI/ML)</span>
+                  <span className="skill-badge">Intermediate</span>
                 </div>
               </div>
 
-              {/* Other Skills */}
+              {/* Familiar / Tools */}
               <div className="skill-category">
-                <h4>AI/ML & Other</h4>
-                <div className="skill-item" onClick={() => setSelectedInfo(infoDetails.python)}>
-                  <div className="skill-info">
-                    <span className="skill-name">Python (AI/ML)</span>
-                    <span className="skill-percent">75%</span>
-                  </div>
-                  <div className="skill-bar" data-percent="75"></div>
+                <h4>Familiar / Tools</h4>
+                <div className="skill-item familiar" onClick={() => setSelectedInfo(infoDetails.git)}>
+                  <span className="skill-name">Git & Version Control</span>
+                  <span className="skill-badge">Proficient</span>
                 </div>
 
-                <div className="skill-item" onClick={() => setSelectedInfo(infoDetails.git)}>
-                  <div className="skill-info">
-                    <span className="skill-name">Git & Version Control</span>
-                    <span className="skill-percent">80%</span>
-                  </div>
-                  <div className="skill-bar" data-percent="80"></div>
+                <div className="skill-item familiar" onClick={() => setSelectedInfo(infoDetails.uiux)}>
+                  <span className="skill-name">UI/UX Design Thinking</span>
+                  <span className="skill-badge">Proficient</span>
                 </div>
 
-                <div className="skill-item" onClick={() => setSelectedInfo(infoDetails.uiux)}>
-                  <div className="skill-info">
-                    <span className="skill-name">UI/UX Design Thinking</span>
-                    <span className="skill-percent">78%</span>
-                  </div>
-                  <div className="skill-bar" data-percent="78"></div>
+                <div className="skill-item familiar" onClick={() => setSelectedInfo(infoDetails.dockeraws)}>
+                  <span className="skill-name">Docker & AWS</span>
+                  <span className="skill-badge">Familiar</span>
                 </div>
               </div>
             </div>

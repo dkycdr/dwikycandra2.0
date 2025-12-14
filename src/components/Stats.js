@@ -18,27 +18,27 @@ function useCountUp(ref, to, duration = 1200, suffix = '') {
 
 export default function Stats() {
   const projectsRef = useRef(null);
-  const techRef = useRef(null);
-  const certificatesRef = useRef(null);
+  const usersRef = useRef(null);
+  const teamsRef = useRef(null);
 
   useCountUp(projectsRef, 15, 1000, '+');
-  useCountUp(techRef, 12, 1000, '+');
-  useCountUp(certificatesRef, 4, 800);
+  useCountUp(usersRef, 800, 1500, '+');
+  useCountUp(teamsRef, 3, 800);
 
   return (
     <section className="stats" aria-label="Statistics">
       <div className="container stats-grid">
         <div className="stat">
           <div className="stat-num" ref={projectsRef}>0</div>
-          <div className="stat-label">Projects Completed</div>
+          <div className="stat-label">Production Projects</div>
         </div>
         <div className="stat">
-          <div className="stat-num" ref={techRef}>0</div>
-          <div className="stat-label">Technologies Mastered</div>
+          <div className="stat-num" ref={usersRef}>0</div>
+          <div className="stat-label">Active Users Served</div>
         </div>
         <div className="stat">
-          <div className="stat-num" ref={certificatesRef}>0</div>
-          <div className="stat-label">Professional Certificates</div>
+          <div className="stat-num" ref={teamsRef}>0</div>
+          <div className="stat-label">Teams Led</div>
         </div>
       </div>
     </section>

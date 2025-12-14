@@ -100,26 +100,25 @@ export default function Hero() {
             </div>
             
             <h1 className={`hero-heading ${isVisible ? 'visible' : ''}`}>
-              Building Beautiful <br/>
-              Digital Experiences<br/>
-              with React
+              Full-Stack Developer<br/>
+              React & AI Integration Specialist
             </h1>
             
             <p className={`hero-bio ${isVisible ? 'visible' : ''}`}>
-              Hi, I'm Dwiky. A passionate Front-End Developer based in Cikarang, Indonesia.
-              I specialize in crafting modern, performant, and user-friendly interfaces
-              using React and cutting-edge web technologies. Currently studying at President
-              University while working on freelance projects.
+              Hi, I'm Dwiky — a Full-Stack Developer specializing in building scalable, 
+              high-performance web applications with React, Next.js, and Node.js. 
+              Currently architecting AI-powered solutions and leading cross-functional teams 
+              to deliver production-ready applications. Based in Cikarang, Indonesia.
             </p>
             
             <div className={`hero-stats ${isVisible ? 'visible' : ''}`}>
               <div className="stat">
-                <span className="stat-number">2+</span>
-                <span className="stat-label">Years Experience</span>
+                <span className="stat-number">15+</span>
+                <span className="stat-label">Production Projects</span>
               </div>
               <div className="stat">
-                <span className="stat-number">10+</span>
-                <span className="stat-label">Projects Completed</span>
+                <span className="stat-number">3</span>
+                <span className="stat-label">Teams Led</span>
               </div>
             </div>
             

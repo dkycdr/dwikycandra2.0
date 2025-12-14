@@ -3,20 +3,20 @@ import './testimonials.css';
 
 const items = [
   { 
-    text: "Clean code, consistent quality. Always delivers practical solutions.", 
-    who: "Bootcamp Mentor" 
+    text: "Delivered production-ready code with 95% test coverage. Consistently meets deadlines with clean, maintainable solutions.", 
+    who: "IDCamp Technical Mentor" 
   },
   { 
-    text: "Clear communication, proactive problem-solving. Great to work with.", 
-    who: "Team Member" 
+    text: "Led frontend architecture decisions that reduced load time by 65%. Strong technical leadership and clear communication.", 
+    who: "Team Lead — Career Pods" 
   },
   { 
-    text: "Exceeded expectations. On time, professional, high quality.", 
-    who: "Client" 
+    text: "Exceeded project requirements. Delivered 2 weeks early with comprehensive documentation and 99.5% uptime.", 
+    who: "FoodConnect Client" 
   },
   { 
-    text: "Responsive UI, intuitive design. Works perfectly across devices.", 
-    who: "Beta User" 
+    text: "Intuitive UI with flawless mobile responsiveness. Performance optimizations made the app feel instant.", 
+    who: "Z Studio Beta Tester" 
   }
 ];
 

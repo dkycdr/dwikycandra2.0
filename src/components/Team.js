@@ -10,9 +10,9 @@ export default function Team() {
     {
       id: 1,
       name: 'Zaky Purwana',
-      role: 'Frontend Developer',
+      role: 'Frontend Developer — Career Pods',
       image: teamMember1,
-      bio: 'I trust him to deliver quality code on time. A reliable and skilled developer.',
+      bio: 'Collaborated on responsive UI components and state management. Delivered pixel-perfect designs with 95% cross-browser compatibility.',
       links: {
         github: 'https://github.com/zeekkk246',
         portfolio: 'https://zeekkk246.github.io/portfolio/'
@@ -21,9 +21,9 @@ export default function Team() {
     {
       id: 2,
       name: 'Nico Johannes Sirait',
-      role: 'Backend Developer',
+      role: 'Backend Developer — FoodConnect',
       image: teamMember2,
-      bio: 'A backend wizard who ensures our applications run smoothly and efficiently.',
+      bio: 'Built RESTful APIs and database architecture. Optimized queries reducing response time from 800ms to 200ms.',
       links: {
         github: 'https://github.com/nicoyhnnssiraitt',
         portfolio: 'https://nicoyhnnssiraitt.github.io/portfolio'
@@ -32,9 +32,9 @@ export default function Team() {
     {
       id: 3,
       name: 'Rivaldo Haryono',
-      role: 'DevOps Engineer',
+      role: 'DevOps Engineer — Z Studio',
       image: teamMember3,
-      bio: 'Expert in deploying and maintaining our infrastructure with ease.',
+      bio: 'Managed CI/CD pipelines and AWS infrastructure. Achieved 99.5% uptime with automated deployment workflows.',
       links: {
         github: 'https://github.com/xenscreww',
         portfolio: 'https://xenscreww.github.io/portfolio'
@@ -46,9 +46,9 @@ export default function Team() {
   return (
     <section className="team" id="team">
       <div className="container">
-        <h2>Team & Collaboration</h2>
+        <h2>Collaborative Work</h2>
         <p className="team-subtitle">
-          Working with amazing people to build incredible projects
+          Cross-functional collaboration on production projects
         </p>
 
         <div className="team-grid">

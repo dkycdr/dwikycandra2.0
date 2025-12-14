@@ -1,4 +1,4 @@
-import React, { useEffect, lazy, Suspense } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import './App.css';
 import NavBar from './components/NavBar';
 import Hero from './components/Hero';
@@ -6,7 +6,7 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Team from './components/Team';
 import Contact from './components/Contact';
-import Plasma from './components/Plasma';
+import GlobalBackground from './components/GlobalBackground';
 import { FiGithub, FiLinkedin, FiInstagram } from 'react-icons/fi';
 
 // Lazy load ChatBot - only loads when needed
@@ -51,14 +51,7 @@ function App() {
 
   return (
     <div className="App">
-      <Plasma
-        color="#9b59ff"
-        speed={0.5}
-        direction="forward"
-        scale={1.1}
-        opacity={0.25}
-        mouseInteractive={true}
-      />
+      <GlobalBackground />
       <NavBar />
       <Hero />
       <main>
