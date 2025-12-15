@@ -32,7 +32,7 @@ const projects = [
     desc: 'Full-stack creative services platform managing 50+ client projects. Automated project workflow reducing administrative overhead by 45% and improved client communication response time by 60%.',
     image: 'project4.jpg',
     tech: ['React', 'Next.js', 'TypeScript', 'Node.js', 'Socket.io'],
-    links: { demo: '#', code: '#' },
+    links: { demo: 'https://zeekkk246.github.io/ZstudiO', code: '#' },
     role: 'Full-Stack Developer',
     jobDesc: 'Architected end-to-end TypeScript application with strict type safety, reducing runtime errors by 80%. Implemented real-time client-designer collaboration system using Socket.io, enabling instant feedback on 100+ design iterations. Built custom file upload system handling 50MB+ assets with progress tracking and automatic compression. Designed RESTful API with Express.js serving 15+ endpoints with comprehensive error handling. Integrated Stripe payment gateway processing $10K+ in transactions. Optimized bundle size from 2.1MB to 450KB through code splitting and tree shaking, achieving 90+ Lighthouse performance score.',
     size: 'medium' // Bento: span 2 columns
