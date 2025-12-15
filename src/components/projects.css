@@ -227,7 +227,7 @@
     position:relative;
     width:100%;
     flex:1;
-    transition:all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    transition:all 1s ease;
     background:rgba(20, 20, 30, 0.6);
     border-radius:16px;
     border:1px solid rgba(155,89,255,0.15);
@@ -255,6 +255,7 @@
 }
 
 .card:hover .card-inner::after {
+    transition: none;
     opacity: 1;
 }
 
@@ -273,16 +274,18 @@
     );
     opacity: 0;
     transform: scaleX(0);
-    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 1s ease;
     z-index: 1;
 }
 
 .card:hover .card-inner::before {
+    transition: none;
     opacity: 1;
     transform: scaleX(1);
 }
 
 .card:hover .card-inner{
+    transition: none;
     transform:translateY(-8px);
     border-color:rgba(155,89,255,0.4);
     box-shadow:
@@ -333,7 +336,9 @@
 }
 
 .card:hover h3 {
-    animation: titleShine 2s ease-in-out;
+    transition: none;
+    color: rgba(155, 89, 255, 0.95);
+    text-shadow: 0 0 20px rgba(155, 89, 255, 0.3);
 }
 
 @keyframes titleShine {
@@ -381,7 +386,7 @@
     letter-spacing:0.1em;
     border:1.5px solid rgba(155,89,255,0.35);
     cursor:pointer;
-    transition:all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    transition:all 1s ease;
     margin:0.5rem 0 0;
     position:relative;
     overflow:hidden;
@@ -412,6 +417,7 @@
 }
 
 .role-badge:hover{
+    transition: none;
     background:linear-gradient(135deg, rgba(155,89,255,0.3), rgba(106,13,173,0.25));
     border-color:rgba(155,89,255,0.6);
     color:#fff;
@@ -439,6 +445,7 @@
 }
 
 .card:hover .tech-tag{
+    transition: none;
     background:rgba(155,89,255,0.15);
     border-color:rgba(155,89,255,0.3);
     color:#fff;
@@ -453,12 +460,13 @@
     padding:0.75rem 0 0;
     opacity:0;
     transform:translateY(8px);
-    transition:opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+    transition:opacity 1s ease, transform 1s ease;
     pointer-events:none;
     width: 100%;
 }
 
 .card:hover .card-links{
+    transition: none;
     opacity:1;
     transform:translateY(0);
     pointer-events:auto;
