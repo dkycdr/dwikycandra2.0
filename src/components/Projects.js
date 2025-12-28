@@ -1,9 +1,21 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { CardContainer, CardBody, CardItem } from './ui/3d-card';
+import ProjectCard from './ProjectCard';
 import './projects.css';
 
 const projects = [
+  {
+    id: 0,
+    title: '⚡ ZeroCode - Cyberpunk Coding Academy',
+    desc: 'Next-generation interactive coding platform with 19 complete courses, browser-based Monaco IDE, multi-engine execution (Python/Pyodide, React, Terminal), gamification system with XP & leaderboards, and virtual Git environment.',
+    image: 'zerocode.jpg',
+    tech: ['React 19', 'Vite', 'PostgreSQL', 'Monaco Editor', 'Pyodide', 'Google Gemini AI', 'Framer Motion', 'TailwindCSS'],
+    links: { demo: 'https://zerocode.web.id', code: 'https://github.com/dkycdr/ZeroCode' },
+    role: '🏆 Founder & Lead Architect',
+    jobDesc: 'Founding architect and lead developer of ZeroCode, a revolutionary cyberpunk-themed coding academy. Built complete platform from ground up featuring 19 comprehensive courses (280+ hours content), AI-powered chatbot using Google Gemini for context-aware assistance, browser-based Monaco Editor with syntax highlighting, multi-engine code execution supporting Python (Pyodide WASM), React/TypeScript live preview, and virtual terminal. Implemented sophisticated gamification system with XP, levels, 365-day activity heatmap, and global leaderboards. Engineered virtual Git environment with 50+ commands for risk-free learning. Designed and developed cyberpunk/futuristic UI with neon aesthetics, glitch effects, and scanline overlays. Architected PostgreSQL database (Neon) handling user progress, course completion, and community forum. Deployed on Vercel with serverless functions for authentication (JWT), OAuth (Google/GitHub), and real-time leaderboard. Currently serving 1,247+ active users with 43% average course completion rate. Platform processes 24,567+ code submissions and 15,234+ AI queries.',
+    featured: true,
+    size: 'flagship'
+  },
   {
     id: 2,
     title: 'Career Pods Explorer',
@@ -13,7 +25,7 @@ const projects = [
     links: { demo: 'https://career-podsv1.vercel.app', code: '#' },
     role: 'Project Manager & Lead Developer',
     jobDesc: 'Led 4-person cross-functional team through full SDLC. Architected scalable PostgreSQL database schema handling 500+ user profiles and 1000+ career resources. Implemented real-time WebSocket connections for instant mentorship notifications. Reduced page load time from 3.2s to 1.1s through code splitting and lazy loading. Managed sprint cycles using Agile methodology, conducted code reviews, and delivered MVP 2 weeks ahead of schedule.',
-    size: 'large' // Bento: span 2 columns
+    size: 'large'
   },
   {
     id: 3,
@@ -24,7 +36,7 @@ const projects = [
     links: { demo: '#', code: '#' },
     role: 'Project Manager & Backend Architect',
     jobDesc: 'Coordinated 6-person team across web (React/Next.js) and mobile (Flutter) platforms. Designed and implemented RESTful API architecture handling 200+ concurrent requests with 99.5% uptime. Built real-time order tracking system using WebSockets, reducing customer support inquiries by 35%. Architected PostgreSQL database with optimized indexing strategies, achieving sub-100ms query response times. Implemented JWT-based authentication system securing 800+ user accounts. Delivered production-ready MVP in 12 weeks with zero critical bugs post-launch.',
-    size: 'large' // Bento: span 2 columns
+    size: 'large'
   },
   {
     id: 4,
@@ -35,7 +47,7 @@ const projects = [
     links: { demo: 'https://zeekkk246.github.io/ZstudiO', code: 'https://zeekkk246.github.io/ZstudiO' },
     role: 'Full-Stack Developer',
     jobDesc: 'Architected end-to-end TypeScript application with strict type safety, reducing runtime errors by 80%. Implemented real-time client-designer collaboration system using Socket.io, enabling instant feedback on 100+ design iterations. Built custom file upload system handling 50MB+ assets with progress tracking and automatic compression. Designed RESTful API with Express.js serving 15+ endpoints with comprehensive error handling. Integrated Stripe payment gateway processing $10K+ in transactions. Optimized bundle size from 2.1MB to 450KB through code splitting and tree shaking, achieving 90+ Lighthouse performance score.',
-    size: 'medium' // Bento: span 2 columns
+    size: 'medium'
   },
   {
     id: 1,
@@ -46,7 +58,7 @@ const projects = [
     links: { demo: 'https://dkycdr.github.io/dwiky-candra/ai-landing.html', code: '#' },
     role: 'Personal Project',
     jobDesc: 'Full ownership of project design and implementation. Responsible for UI/UX design, component architecture, API integration with OpenAI, and deployment.',
-    size: 'small' // Bento: span 1 column
+    size: 'small'
   },
   {
     id: 5,
@@ -57,7 +69,7 @@ const projects = [
     links: { demo: 'https://digital-notes-beige.vercel.app', code: '#' },
     role: 'Personal Project',
     jobDesc: 'Designed and implemented a note-taking application with real-time collaboration. Developed frontend using React/Next.js, backend with Node.js, and integrated WebSocket for live updates. Focused on user authentication, note sharing, and responsive design.',
-    size: 'small' // Bento: span 1 column
+    size: 'small'
   }
 ];
 
@@ -78,9 +90,8 @@ export default function Projects() {
       { threshold: 0.2 }
     );
 
-    const cards = gridRef.current?.querySelectorAll('.card') || [];
-    cards.forEach((card, idx) => {
-      card.style.setProperty('--delay', `${idx * 0.1}s`);
+    const cards = gridRef.current?.querySelectorAll('.project-card') || [];
+    cards.forEach((card) => {
       observer.observe(card);
     });
 
@@ -118,59 +129,23 @@ export default function Projects() {
         </div>
 
         <div className="grid" ref={gridRef}>
-          {projects.map(p => (
-            <div key={p.id} className="project-wrapper" data-size={p.size}>
-              <CardContainer containerClassName="h-full w-full p-0">
-                <CardBody className="h-full w-full">
-                  <div className="card h-full w-full">
-                    <div className="card-inner h-full">
-                      <div className="card-front">
-                        <div className="card-content">
-                          <CardItem translateZ="100" as="h3">
-                            {p.title}
-                          </CardItem>
-                          <CardItem translateZ="60" as="p">
-                            {p.desc}
-                          </CardItem>
-                          <CardItem
-                            translateZ="150"
-                            as="div"
-                            className="role-badge"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setSelectedRole(p);
-                            }}
-                          >
-                            {p.role}
-                          </CardItem>
-                          <CardItem translateZ="50" className="tech-stack">
-                            {p.tech.map(tech => (
-                              <span key={tech} className="tech-tag">{tech}</span>
-                            ))}
-                          </CardItem>
-                        </div>
-                      </div>
-                      <CardItem translateZ="180" className="card-links">
-                        <a href={p.links.demo} className="card-link demo" target="_blank" rel="noopener noreferrer">
-                          <svg className="link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                            <polyline points="15 3 21 3 21 9"></polyline>
-                            <line x1="10" y1="14" x2="21" y2="3"></line>
-                          </svg>
-                          <span>Live Demo</span>
-                        </a>
-                        <a href={p.links.code} className="card-link code" target="_blank" rel="noopener noreferrer">
-                          <svg className="link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <polyline points="16 18 22 12 16 6"></polyline>
-                            <polyline points="8 6 2 12 8 18"></polyline>
-                          </svg>
-                          <span>View Code</span>
-                        </a>
-                      </CardItem>
-                    </div>
-                  </div>
-                </CardBody>
-              </CardContainer>
+          {projects.map((p, index) => (
+            <div
+              key={p.id}
+              className="project-wrapper"
+              data-size={p.size}
+              data-featured={p.featured || false}
+            >
+              <ProjectCard
+                title={p.title}
+                description={p.desc}
+                techStack={p.tech}
+                demoLink={p.links.demo}
+                codeLink={p.links.code}
+                role={p.role}
+                onRoleClick={() => setSelectedRole(p)}
+                delay={index * 0.1}
+              />
             </div>
           ))}
         </div>
